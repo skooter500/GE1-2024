@@ -4,5 +4,4 @@
 
 Welcome to the Metaverse Holograms!
 
-![[bla](holo.jpg)]()
-
+![](holo.jpg)
