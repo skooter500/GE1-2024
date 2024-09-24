@@ -2,6 +2,7 @@
 
 [What is Games Engines?](https://bryanduggan.org/2024/09/05/what-is-games-engines/)
 
-Welcome to the Metaverse Holograms!
-
+```
+Welcome to the Metaverse
+```
 ![](holo.jpg)
