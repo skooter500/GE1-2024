@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba14fggw5l8f0"]
+[gd_scene load_steps=9 format=3 uid="uid://ba14fggw5l8f0"]
 
 [ext_resource type="Material" uid="uid://jtapy0w20kol" path="res://green.tres" id="1_ippo0"]
 [ext_resource type="Material" uid="uid://dpptohx6mjlr7" path="res://blue.tres" id="2_ink16"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="3_kfo1j"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="4_3lb5j"]
+[ext_resource type="PackedScene" uid="uid://djrrphccgkm2q" path="res://scenes/brick.tscn" id="5_pgnwc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_72wou"]
 material = ExtResource("1_ippo0")
 size = Vector2(100, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fn2od"]
-size = Vector3(1, 2, 1)
+size = Vector3(1, 1.5, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2el4x"]
 size = Vector3(0.1, 0.1, 1)
@@ -21,7 +22,7 @@ size = Vector3(0.1, 0.1, 1)
 mesh = SubResource("PlaneMesh_72wou")
 
 [node name="player" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.667703, 0, -0.744428, 0, 1, 0, 0.744428, 0, 0.667703, 0, 0, 0)
+transform = Transform3D(0.667703, 0, -0.744428, 0, 1, 0, 0.744428, 0, 0.667703, 0, 0.748814, 0)
 material_override = ExtResource("2_ink16")
 mesh = SubResource("BoxMesh_fn2od")
 script = ExtResource("3_kfo1j")
@@ -32,7 +33,7 @@ material_override = ExtResource("2_ink16")
 mesh = SubResource("BoxMesh_2el4x")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.708353, 3.1734)
+transform = Transform3D(1, 0, 0, 0, 0.916788, 0.399373, 0, -0.399373, 0.916788, 0, 4.18256, 8.49321)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0167643, -0.46893, 0.883076, 0.852372, 0.454982, 0.257786, -0.522667, 0.757031, 0.392076, 0, 0, 0)
@@ -40,3 +41,4 @@ transform = Transform3D(-0.0167643, -0.46893, 0.883076, 0.852372, 0.454982, 0.25
 [node name="wall" type="Node3D" parent="."]
 transform = Transform3D(0.572504, 0, 0.819902, 0, 1, 0, -0.819902, 0, 0.572504, 0, 0.282367, -6.37509)
 script = ExtResource("4_3lb5j")
+brick_scene = ExtResource("5_pgnwc")
