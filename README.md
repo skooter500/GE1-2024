@@ -12,7 +12,7 @@ Welcome to the Metaverse
 
 ## Assessment
 - 20% Weekly git commits
-- 30% Assignment
+- [30% Assignment](assignment.md)
 - 50% Exam 
 
 ## Week 2
