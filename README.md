@@ -2,7 +2,7 @@
 
 [What is Games Engines?](https://bryanduggan.org/2024/09/05/what-is-games-engines/)
 
-[DISCORD](https://discord.gg/s6ZT5CDS)
+[Join the DISCORD](https://discord.gg/mD35MphU)
 
 ```
 Welcome to the Metaverse
