@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://buu3aq61omx1k"]
+[gd_scene load_steps=3 format=3 uid="uid://buu3aq61omx1k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_k1byt"]
 
-[node name="brick" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gw8lq"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_k1byt")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gw8lq")
