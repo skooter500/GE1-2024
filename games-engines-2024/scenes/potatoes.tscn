@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://d2cnv7v7huh3k"]
+
+[ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_1bql5"]
+[ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="1_ljfv3"]
+[ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="2_cp1av"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="3_1hidi"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="4_x4eqr"]
+[ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="5_nw2f7"]
+[ext_resource type="PackedScene" uid="uid://c1bnq83851e46" path="res://bullet.tscn" id="6_ngcvm"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_307sh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dedr2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tuvxv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ug6i"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yo8sf"]
+size = Vector3(0.1, 0.1, 1)
+
+[node name="root" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687456, 7.28339)
+script = ExtResource("1_1bql5")
+target = NodePath("../tank/cam_target")
+player = NodePath("../tank")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.597812, 0.487615, 0.63628, -0.63207, 0.774911, 0, -0.493061, -0.402174, 0.771458, 0, 0, 0)
+
+[node name="wall" type="Node3D" parent="."]
+transform = Transform3D(0.470596, 0, 0.882349, 0, 1, 0, -0.882349, 0, 0.470596, 0, 0, -15.2278)
+script = ExtResource("4_x4eqr")
+brick_scene = ExtResource("5_nw2f7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="ground" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = ExtResource("1_ljfv3")
+mesh = SubResource("PlaneMesh_00q4b")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_307sh")
+
+[node name="tank" type="CharacterBody3D" parent="." node_paths=PackedStringArray("bullet_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("3_1hidi")
+speed = 10.0
+bullet_scene = ExtResource("6_ngcvm")
+bullet_spawn = NodePath("bullet_spawn")
+
+[node name="player" type="MeshInstance3D" parent="tank"]
+material_override = ExtResource("2_cp1av")
+mesh = SubResource("BoxMesh_dedr2")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank"]
+shape = SubResource("BoxShape3D_tuvxv")
+
+[node name="cam_target" type="Marker3D" parent="tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39173, -5.70533)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555838, 0.500628)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tank/StaticBody3D"]
+material_override = ExtResource("2_cp1av")
+mesh = SubResource("BoxMesh_0ug6i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank/StaticBody3D"]
+shape = SubResource("BoxShape3D_yo8sf")
+
+[node name="bullet_spawn" type="Marker3D" parent="tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54856, 1.64877)
