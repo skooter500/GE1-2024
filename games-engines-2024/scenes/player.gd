@@ -1,5 +1,4 @@
-extends MeshInstance3D
-
+extends CharacterBody3D
 
 @export var speed:float = -1
 @export var rot_speed = 180.0
