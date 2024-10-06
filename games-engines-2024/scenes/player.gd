@@ -1,53 +1,79 @@
 extends CharacterBody3D
 
-@export var speed:float = -1
-@export var rot_speed = 180.0
 
-@export var bullet_scene:PackedScene
-@export var bullet_spawn:Node3D
+const SPEED = 5.0
+const JUMP_VELOCITY = 10
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var controlling = true
 
+@export var rot_speed = 180
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	
-	# position.z += speed * delta
-	# global_position.z += speed * delta
-	
-	var f = Input.get_axis("move_back", "move_forward")
-	
-	var v = Vector3()	
-	v = global_transform.basis.z	
-	print(global_transform.basis.z)	 
-	velocity = - v * speed * f
-	
-	move_and_slide()
-	
-	var r = Input.get_axis("turn_left", "turn_right")
-	
-	rotate_y(- deg_to_rad(rot_speed) * r * delta)
-	#ranslate(Vector3(0, 0, f * delta * speed))
-	# rotate_y()
-	# rotate_y(deg_to_rad(rot_speed) * delta)
-	# rotate_x(deg_to_rad(rot_speed) * delta)
-	
+var relative:Vector2 = Vector2.ZERO
+
+func print_stuff():
 	DebugDraw2D.set_text("position", position)
 	DebugDraw2D.set_text("global_position", position)
+	DebugDraw2D.set_text("rotation", rotation)
+	DebugDraw2D.set_text("global_rotation", global_rotation)
+
 	DebugDraw2D.set_text("basis.x", transform.basis.x)
 	DebugDraw2D.set_text("basis.y", transform.basis.y)
 	DebugDraw2D.set_text("basis.z", transform.basis.z)
-	DebugDraw2D.set_text("glo basis.x", global_transform.basis.x)
-	DebugDraw2D.set_text("glo basis.y", global_transform.basis.y)
-	DebugDraw2D.set_text("glo basis.z", global_transform.basis.z)
+	DebugDraw2D.set_text("global basis.x", global_transform.basis.x)
+	DebugDraw2D.set_text("global basis.y", global_transform.basis.y)
+	DebugDraw2D.set_text("global basis.z", global_transform.basis.z)
+
+
+
+func _input(event):
+	if event is InputEventMouseMotion and controlling:
+		relative = event.relative
+	if event.is_action_pressed("ui_cancel"):
+		if controlling:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:			
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		controlling = ! controlling
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass # Replace with function body.
 	
-	if Input.is_action_pressed("shoot"):
-		var bullet = bullet_scene.instantiate()
-		get_parent().add_child(bullet)
+
+func _physics_process(delta: float) -> void:
 	
-		bullet.global_position = bullet_spawn.global_position
-		bullet.global_rotation = global_rotation
+	print_stuff()
 	
-	pass
+	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
+	rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
+	relative = Vector2.ZERO
+
+
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+
+	# walk
+	var w = Input.get_axis("move_back", "move_forward")
+	if w:
+		var dir = global_transform.basis.z
+		dir.y = 0
+		dir = dir.normalized()
+		velocity += w * dir
+
+	# strafe
+	var s = Input.get_axis("turn_left", "turn_right")
+	if s:
+		velocity -= s * global_transform.basis.x * SPEED
+
+	# damping
+	velocity *= 0.9
+	
+	move_and_slide()

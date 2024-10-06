@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2cnv7v7huh3k"]
+[gd_scene load_steps=15 format=3 uid="uid://d2cnv7v7huh3k"]
 
 [ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_1bql5"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="1_ljfv3"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="2_cp1av"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="3_1hidi"]
+[ext_resource type="Script" path="res://scenes/tank.gd" id="3_1hidi"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="4_x4eqr"]
 [ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="5_nw2f7"]
 [ext_resource type="PackedScene" uid="uid://c1bnq83851e46" path="res://bullet.tscn" id="6_ngcvm"]
+[ext_resource type="Script" path="res://scenes/tower.gd" id="8_57hm3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -26,18 +27,20 @@ size = Vector3(0.1, 0.1, 1)
 [node name="root" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687456, 7.28339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34612, -17.565)
 script = ExtResource("1_1bql5")
 target = NodePath("../tank/cam_target")
 player = NodePath("../tank")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.597812, 0.487615, 0.63628, -0.63207, 0.774911, 0, -0.493061, -0.402174, 0.771458, 0, 0, 0)
+transform = Transform3D(-0.486978, -0.857167, -0.16768, -0.325568, -1.4231e-08, 0.945518, -0.810468, 0.515038, -0.279066, 0, 0, 0)
 
 [node name="wall" type="Node3D" parent="."]
-transform = Transform3D(0.470596, 0, 0.882349, 0, 1, 0, -0.882349, 0, 0.470596, 0, 0, -15.2278)
+transform = Transform3D(0.599429, 0, -0.800428, 0, 1, 0, 0.800428, 0, 0.599429, -10.4284, 0, 9.54581)
 script = ExtResource("4_x4eqr")
 brick_scene = ExtResource("5_nw2f7")
+
+[node name="Marker3D" type="Marker3D" parent="wall"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -65,7 +68,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_tuvxv")
 
 [node name="cam_target" type="Marker3D" parent="tank"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.39173, -5.70533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.39173, -14.7053)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555838, 0.500628)
@@ -79,3 +82,14 @@ shape = SubResource("BoxShape3D_yo8sf")
 
 [node name="bullet_spawn" type="Marker3D" parent="tank"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54856, 1.64877)
+
+[node name="Timer" type="Timer" parent="tank"]
+one_shot = true
+
+[node name="tower" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4738, 0.5, 13.1969)
+script = ExtResource("8_57hm3")
+brick_scene = ExtResource("5_nw2f7")
+radius = 5.0
+elements = 22
+brick_size = 1.0
