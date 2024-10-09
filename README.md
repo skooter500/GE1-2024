@@ -15,6 +15,12 @@ Welcome to the Metaverse
 - [30% Assignment](assignment.md)
 - 50% Exam 
 
+## Week 4 - GodotCon
+- I will not be around on Friday, but I have added lots of examples to the repo
+
+## Week 3 - Tank Game
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EVgdRCS4yuxLpwjuisiN_6kBsGBKl9Ok-9B0O53q8wNSWA?e=uX0Se6&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+
 ## Week 2 - Godot Transforms
 - [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ERYblkFIO5dBvuNzpsJITcMBm9EHO1j4XdIJ59m5A3T7CQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=UinNs8)
 
