@@ -81,6 +81,8 @@ tracker = &"right_hand"
 mesh = SubResource("BoxMesh_jy154")
 
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="player/XROrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+top_level = true
 script = ExtResource("8_0wnol")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player/XROrigin/XRToolsPlayerBody"]
