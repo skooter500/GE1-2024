@@ -2,7 +2,7 @@
 
 [What is Games Engines?](https://bryanduggan.org/2024/09/05/what-is-games-engines/)
 
-[Join the DISCORD](https://discord.gg/mD35MphU)
+[Join the DISCORD](https://discord.gg/J9nxA5qV)
 
 ```
 Welcome to the Metaverse
@@ -15,8 +15,20 @@ Welcome to the Metaverse
 - [30% Assignment](assignment.md)
 - 50% Exam 
 
+# Resources
+- [CSResources git repo](https://github.com/skooter500/csresources/blob/main/git_ref.pdf). Here you will find links to the previous courses and all my quick references
+- [Git for poets](https://www.youtube.com/watch?v=BCQHnlnPusY)
+- [Godot for beginners](https://www.youtube.com/watch?v=LOhfqjmasi0)
+- [GDScript Tutorial](https://www.youtube.com/watch?v=e1zJS31tr88)
+- [5 Games Made in Godot to inspire you each week](https://www.youtube.com/@stayathomedev) 
+- [Game dev news channel](https://www.youtube.com/@gamefromscratch)
+- [Godot discord](https://discord.com/invite/godotengine)
+- [Submit your fork of the git repo](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQUYzR082WFNZQUNTSlpZUkY3VzE5N0xBNi4u)
+
+
 ## Week 4 - GodotCon
 - I will not be around on Friday, but I have added lots of examples to the repo
+- [Recording from last year](https://discord.com/channels/1157095262121111624/1286663477330444288/1294268932743757874)
 
 ## Week 3 - Tank Game
 - [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EVgdRCS4yuxLpwjuisiN_6kBsGBKl9Ok-9B0O53q8wNSWA?e=uX0Se6&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
