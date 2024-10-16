@@ -17,7 +17,6 @@ func _ready() -> void:
 			
 			var m = StandardMaterial3D.new()
 			var h = ((row * cols) + col) / (float)(rows * cols)
-			
 			m.albedo_color = Color.from_hsv(h, 1, 1)
 			
 			var mesh:MeshInstance3D = brick.get_node("MeshInstance3D")

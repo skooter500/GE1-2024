@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="my-turret_lab02"
+config/name="my-turret"
 run/main_scene="res://my-turret_lab02.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"

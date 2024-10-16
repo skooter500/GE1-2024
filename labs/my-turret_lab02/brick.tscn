@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddn8yjq4dyhie"]
+[gd_scene load_steps=3 format=3 uid="uid://ddn8yjq4dyhie"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_igo21"]
 
-[node name="brick" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jg6b3"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+transform = Transform3D(0.844618, 0.0169768, -0.535101, -0.0148363, 0.999856, 0.00830387, 0.535165, 0.000925355, 0.844747, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.03543)
 mesh = SubResource("BoxMesh_igo21")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jg6b3")
+
+[node name="brick" type="Node3D" parent="."]
+transform = Transform3D(0.114883, 0.00333724, -0.993374, -0.000493386, 0.999994, 0.00330242, 0.993379, 0.00011071, 0.114884, 0, 0, 0)
+visible = false
