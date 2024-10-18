@@ -74,10 +74,10 @@ mesh = SubResource("BoxMesh_b7sys")
 
 [node name="FunctionTeleport" parent="player/XROrigin/left" instance=ExtResource("6_7h4ep")]
 
-[node name="right" type="XRController3D" parent="player/XROrigin"]
+[node name="right" type="XRController3D" parent="player/XROrigin/left"]
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/right"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/left/right"]
 mesh = SubResource("BoxMesh_jy154")
 
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="player/XROrigin"]
