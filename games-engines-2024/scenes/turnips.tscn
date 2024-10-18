@@ -36,7 +36,7 @@ skeleton = NodePath("../..")
 shape = SubResource("WorldBoundaryShape3D_307sh")
 
 [node name="tower" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4738, 0.5, 13.1969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4738, 0.5, -22.6523)
 script = ExtResource("8_gqgtq")
 brick_scene = ExtResource("3_uuov8")
 radius = 5.0
