@@ -104,6 +104,10 @@ func play_step(col):
 		if sequence[row][col]:
 			play_sample(0, row)
 
+var step:int = 0
+
 func _on_timer_timeout() -> void:
-	
+	print("step " + str(step))
+	play_step(step)
+	step = (step + 1) % steps
 	pass # Replace with function body.

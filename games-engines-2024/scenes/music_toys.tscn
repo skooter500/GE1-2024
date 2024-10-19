@@ -106,5 +106,6 @@ pad_scene = ExtResource("17_pakd3")
 
 [node name="Timer" type="Timer" parent="sequencer"]
 wait_time = 0.5
+autostart = true
 
 [connection signal="timeout" from="sequencer/Timer" to="sequencer" method="_on_timer_timeout"]
