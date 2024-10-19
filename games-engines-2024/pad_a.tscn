@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm1qa5btl0821"]
+
+[ext_resource type="Script" path="res://pad_a.gd" id="1_nyep7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b4tya"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agaqi"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="TextMesh" id="TextMesh_rouw0"]
+text = "HELLO"
+font_size = 1
+
+[node name="Pad" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_nyep7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_b4tya")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_agaqi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0453388)
+mesh = SubResource("TextMesh_rouw0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
