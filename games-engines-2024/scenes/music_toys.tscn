@@ -103,3 +103,8 @@ light_energy = 16.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548443, 2.25293, 0.936082)
 script = ExtResource("16_6ue7p")
 pad_scene = ExtResource("17_pakd3")
+
+[node name="Timer" type="Timer" parent="sequencer"]
+wait_time = 0.5
+
+[connection signal="timeout" from="sequencer/Timer" to="sequencer" method="_on_timer_timeout"]

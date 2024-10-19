@@ -10,12 +10,17 @@ var sequence = []
 
 @export var steps = 8
 
+var rows:int
+var cols:int
+
 func initialise_sequence(rows, cols):
 	for i in range(rows):
 		var row = []
 		for j in range(cols):
 			row.append(false)
 		sequence.append(row)
+	self.rows = rows
+	self.cols = cols
 
 func _ready():
 	load_samples()
@@ -94,6 +99,11 @@ func load_samples():
 				# break
 			file_name = dir.get_next()	
 
+func play_step(col):
+	for row in range(rows):
+		if sequence[row][col]:
+			play_sample(0, row)
 
 func _on_timer_timeout() -> void:
+	
 	pass # Replace with function body.
