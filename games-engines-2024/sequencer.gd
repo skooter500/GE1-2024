@@ -54,6 +54,7 @@ func play_sample(e, i):
 func toggle(e, row, col):
 	print("toggle " + str(row) + " " + str(col))
 	sequence[row][col] = ! sequence[row][col]
+	play_sample(0, row)
 	print_sequence()
 
 func make_sequencer():	
