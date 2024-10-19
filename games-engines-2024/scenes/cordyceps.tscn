@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://prvigccg8cta"]
+[gd_scene load_steps=13 format=3 uid="uid://prvigccg8cta"]
 
 [ext_resource type="Script" path="res://scenes/lyonsmane.gd" id="1_vwdhj"]
-[ext_resource type="Script" path="res://scenes/wall.gd" id="2_igvh8"]
-[ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="3_july6"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_widw5"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_d1xpo"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="4_sxyf8"]
-[ext_resource type="Script" path="res://scenes/tower.gd" id="5_s52g6"]
-[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_7h4ep"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="8_0wnol"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
@@ -31,30 +29,16 @@ script = ExtResource("1_vwdhj")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.486978, -0.857167, -0.16768, -0.325568, -1.4231e-08, 0.945518, -0.810468, 0.515038, -0.279066, 0, 0, 0)
 
-[node name="wall" type="Node3D" parent="."]
-transform = Transform3D(0.599429, 0, -0.800428, 0, 1, 0, 0.800428, 0, 0.599429, -10.4284, 0, 9.54581)
-script = ExtResource("2_igvh8")
-brick_scene = ExtResource("3_july6")
-
-[node name="Marker3D" type="Marker3D" parent="wall"]
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="ground" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
 material_override = ExtResource("4_sxyf8")
 mesh = SubResource("PlaneMesh_00q4b")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_307sh")
-
-[node name="tower" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4738, 0.5, 13.1969)
-script = ExtResource("5_s52g6")
-brick_scene = ExtResource("3_july6")
-radius = 5.0
-elements = 22
-brick_size = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c4jos")
@@ -72,12 +56,14 @@ tracker = &"left_hand"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/left"]
 mesh = SubResource("BoxMesh_b7sys")
 
-[node name="FunctionTeleport" parent="player/XROrigin/left" instance=ExtResource("6_7h4ep")]
+[node name="MovementDirect" parent="player/XROrigin/left" instance=ExtResource("3_widw5")]
 
-[node name="right" type="XRController3D" parent="player/XROrigin/left"]
+[node name="MovementTurn" parent="player/XROrigin/left" instance=ExtResource("4_d1xpo")]
+
+[node name="right" type="XRController3D" parent="player/XROrigin"]
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/left/right"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/right"]
 mesh = SubResource("BoxMesh_jy154")
 
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="player/XROrigin"]
