@@ -1,10 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://prvigccg8cta"]
+[gd_scene load_steps=23 format=3 uid="uid://prvigccg8cta"]
 
 [ext_resource type="Script" path="res://scenes/lyonsmane.gd" id="1_vwdhj"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_widw5"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_d1xpo"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="4_sxyf8"]
+[ext_resource type="PackedScene" uid="uid://c22b64h4ohfjt" path="res://pad.tscn" id="6_0k6bf"]
+[ext_resource type="AudioStream" uid="uid://bi1ofyhd7ibsq" path="res://samples/cowbell-808.wav" id="7_oecbk"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="8_0wnol"]
+[ext_resource type="AudioStream" uid="uid://c8olnij88hh13" path="res://samples/crash-808.wav" id="8_bvc17"]
+[ext_resource type="AudioStream" uid="uid://buja0daieg1ex" path="res://samples/hihat-808.wav" id="9_e2wsw"]
+[ext_resource type="AudioStream" uid="uid://bqs3l1q3cyu1q" path="res://samples/kick-808.wav" id="10_uxytj"]
+[ext_resource type="AudioStream" uid="uid://b85mjbi4mwe7" path="res://samples/openhat-808.wav" id="11_fqvv2"]
+[ext_resource type="AudioStream" uid="uid://bm6khvhmy5x3v" path="res://samples/perc-808.wav" id="12_b7p7j"]
+[ext_resource type="AudioStream" uid="uid://bcdifgq3rf4t0" path="res://samples/snare-808.wav" id="13_pino4"]
+[ext_resource type="AudioStream" uid="uid://b4m5q70d3w2a7" path="res://samples/tom-808.wav" id="14_311fk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -16,6 +25,9 @@ size = Vector2(100, 100)
 [sub_resource type="BoxMesh" id="BoxMesh_b7sys"]
 size = Vector3(0.1, 0.1, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_has2o"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_jy154"]
 size = Vector3(0.1, 0.1, 0.1)
 
@@ -25,6 +37,66 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_vwdhj")
+
+[node name="pads" type="Marker3D" parent="."]
+transform = Transform3D(0.295658, 7.04485e-11, -0.955294, 7.61074e-08, 1, 2.36286e-08, 0.955294, -7.96909e-08, 0.295658, 0.958271, 0, 0.871156)
+
+[node name="Pad8" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.405991, 2.5, 0.00152069)
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad8" index="2"]
+stream = ExtResource("13_pino4")
+
+[node name="Pad" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313044, 2.5, 0.00152069)
+
+[node name="Pad2" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44802, 2.5, 0.00152069)
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad2" index="2"]
+stream = ExtResource("7_oecbk")
+
+[node name="Pad3" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.585482, 2.5, 0.00152069)
+
+[node name="MeshInstance3D" parent="pads/Pad3" index="0"]
+skeleton = NodePath("../../Pad2")
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad3" index="2"]
+stream = ExtResource("8_bvc17")
+
+[node name="Pad4" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177124, 2.5, 0.00152069)
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad4" index="2"]
+stream = ExtResource("9_e2wsw")
+
+[node name="Pad5" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0341859, 2.5, 0.00152069)
+
+[node name="MeshInstance3D" parent="pads/Pad5" index="0"]
+skeleton = NodePath("../../Pad2")
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad5" index="2"]
+stream = ExtResource("10_uxytj")
+
+[node name="Pad6" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125599, 2.5, 0.00152069)
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad6" index="2"]
+stream = ExtResource("11_fqvv2")
+
+[node name="Pad7" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269273, 2.5, 0.00152069)
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad7" index="2"]
+stream = ExtResource("12_b7p7j")
+
+[node name="Pad9" parent="pads" instance=ExtResource("6_0k6bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.560099, 2.5, 0.00152069)
+
+[node name="AudioStreamPlayer3D" parent="pads/Pad9" index="2"]
+stream = ExtResource("14_311fk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.486978, -0.857167, -0.16768, -0.325568, -1.4231e-08, 0.945518, -0.810468, 0.515038, -0.279066, 0, 0, 0)
@@ -60,11 +132,21 @@ mesh = SubResource("BoxMesh_b7sys")
 
 [node name="MovementTurn" parent="player/XROrigin/left" instance=ExtResource("4_d1xpo")]
 
+[node name="Area3D" type="Area3D" parent="player/XROrigin/left"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player/XROrigin/left/Area3D"]
+shape = SubResource("BoxShape3D_has2o")
+
 [node name="right" type="XRController3D" parent="player/XROrigin"]
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/right"]
 mesh = SubResource("BoxMesh_jy154")
+
+[node name="Area3D" type="Area3D" parent="player/XROrigin/right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player/XROrigin/right/Area3D"]
+shape = SubResource("BoxShape3D_has2o")
 
 [node name="XRToolsPlayerBody" type="CharacterBody3D" parent="player/XROrigin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -76,3 +158,15 @@ shape = SubResource("CapsuleShape3D_fy7ik")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("CapsuleShape3D_uox6i")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62169, 0, 1.6686)
+
+[editable path="pads/Pad8"]
+[editable path="pads/Pad2"]
+[editable path="pads/Pad3"]
+[editable path="pads/Pad4"]
+[editable path="pads/Pad5"]
+[editable path="pads/Pad6"]
+[editable path="pads/Pad7"]
+[editable path="pads/Pad9"]
