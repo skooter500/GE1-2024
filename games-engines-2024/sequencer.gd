@@ -3,7 +3,10 @@ extends Marker3D
 var samples:Array
 var players:Array
 
+@export var font:Font 
+
 var sequence = []
+var file_names = []
 
 @export var path_str = "res://samples" 
 @export var pad_scene:PackedScene
@@ -27,7 +30,7 @@ func _ready():
 	initialise_sequence(samples.size(), steps)
 	make_sequencer()
 	
-	for i in range(20):
+	for i in range(50):
 		var asp = AudioStreamPlayer.new()
 		add_child(asp)
 		players.push_back(asp)
@@ -56,21 +59,28 @@ func toggle(e, row, col):
 	sequence[row][col] = ! sequence[row][col]
 	play_sample(0, row)
 	print_sequence()
+	
+
+var s = 0.04
+var spacer = 1.1
 
 func make_sequencer():	
 	
 	for col in range(steps):		
-		var s = 0.1
+		
 		for row in range(samples.size()):
 			var pad = pad_scene.instantiate()
-			var spacer = 1.2
+			
 			var p = Vector3(s * col * spacer, s * row * spacer, 0)
 			pad.position = p		
 			pad.rotation = rotation
-			var tm = TextMesh.new()
-			tm.font_size = 1
-			tm.text = str(row) + "," + str(col)
-			pad.get_node("MeshInstance3D2").mesh = tm
+			#var tm = TextMesh.new()
+			#tm.font = font
+			#tm.font_size = 1
+			#tm.depth = 0.005
+			## tm.text = str(row) + "," + str(col)
+			#tm.text = file_names[row]
+			#pad.get_node("MeshInstance3D2").mesh = tm
 			pad.area_entered.connect(toggle.bind(row, col))
 			add_child(pad)
 		
@@ -96,11 +106,15 @@ func load_samples():
 				var stream = load(path_str + "/" + file_name)
 				stream.resource_name = file_name
 				samples.push_back(stream)
+				file_names.push_back(file_name)
 				# $AudioStreamPlayer.play()
 				# break
 			file_name = dir.get_next()	
 
 func play_step(col):
+	var p = Vector3(s * col * spacer, s * -1 * spacer, 0)
+			
+	$timer_ball.position = p
 	for row in range(rows):
 		if sequence[row][col]:
 			play_sample(0, row)
@@ -111,4 +125,12 @@ func _on_timer_timeout() -> void:
 	print("step " + str(step))
 	play_step(step)
 	step = (step + 1) % steps
+	pass # Replace with function body.
+
+
+func _on_start_stop_area_entered(area: Area3D) -> void:
+	if $Timer.is_stopped():
+		$Timer.start()
+	else:
+		$Timer.stop()
 	pass # Replace with function body.

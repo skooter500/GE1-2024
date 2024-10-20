@@ -2,8 +2,8 @@ extends Area3D
 
 var mat:StandardMaterial3D
 
-var out_color:Color = Color.from_hsv(.3, 1, 1, 0.1)
-var in_color:Color = Color.from_hsv(.7, 1, 1, 0.1)
+var out_color:Color = Color.from_hsv(.4, 1, 1, 0.7)
+var in_color:Color = Color.from_hsv(0, 1, 1, 0.7)
 
 var toggle:bool = false
 
@@ -13,6 +13,7 @@ func _ready() -> void:
 	mat = StandardMaterial3D.new()
 	$MeshInstance3D.set_surface_override_material(0, mat)
 	mat.albedo_color = out_color
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	pass # Replace with function body.
 
 

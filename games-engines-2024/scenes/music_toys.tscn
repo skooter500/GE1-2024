@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmxsk4jm7l87j"]
+[gd_scene load_steps=20 format=3 uid="uid://cmxsk4jm7l87j"]
 
 [ext_resource type="Script" path="res://scenes/music_toys.gd" id="1_5r4j1"]
+[ext_resource type="FontFile" uid="uid://rvjbc8pu44du" path="res://fonts/Hyperspace.otf" id="7_150ad"]
+[ext_resource type="Material" uid="uid://bwy778jyvpj15" path="res://seq_mat.tres" id="8_tqx1f"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="11_g562f"]
 [ext_resource type="Script" path="res://FPController.gd" id="12_xomjn"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="13_wjct6"]
@@ -17,18 +19,25 @@ size = Vector2(100, 100)
 ambient_light_color = Color(0.775063, 0.775063, 0.775063, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m1hcr"]
-radius = 0.1
+radius = 0.01
 
 [sub_resource type="SphereMesh" id="SphereMesh_qp3di"]
-radius = 0.1
-height = 0.2
+radius = 0.02
+height = 0.04
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_32eju"]
-radius = 0.1
+radius = 0.01
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fy7ik"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uox6i"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gynoj"]
+radius = 0.02
+height = 0.04
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_scstw"]
+radius = 0.02
 
 [node name="root" type="Node3D"]
 script = ExtResource("1_5r4j1")
@@ -98,13 +107,28 @@ transform = Transform3D(-0.220772, -0.975312, -0.00516406, 0.254535, -0.0627264,
 light_energy = 16.0
 
 [node name="sequencer" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548443, 2.25293, 0.936082)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548, 2.5, 0.936)
 script = ExtResource("16_6ue7p")
+font = ExtResource("7_150ad")
 pad_scene = ExtResource("17_pakd3")
 steps = 16
 
 [node name="Timer" type="Timer" parent="sequencer"]
-wait_time = 0.5
-autostart = true
+wait_time = 0.125
+
+[node name="timer_ball" type="MeshInstance3D" parent="sequencer"]
+mesh = SubResource("SphereMesh_gynoj")
+surface_material_override/0 = ExtResource("8_tqx1f")
+
+[node name="start_stop" type="Area3D" parent="sequencer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12812, 0, 0)
+
+[node name="mesh" type="MeshInstance3D" parent="sequencer/start_stop"]
+mesh = SubResource("SphereMesh_gynoj")
+surface_material_override/0 = ExtResource("8_tqx1f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sequencer/start_stop"]
+shape = SubResource("SphereShape3D_scstw")
 
 [connection signal="timeout" from="sequencer/Timer" to="sequencer" method="_on_timer_timeout"]
+[connection signal="area_entered" from="sequencer/start_stop" to="sequencer" method="_on_start_stop_area_entered"]
