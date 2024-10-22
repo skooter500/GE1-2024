@@ -106,6 +106,16 @@ shape = SubResource("CapsuleShape3D_uox6i")
 transform = Transform3D(-0.220772, -0.975312, -0.00516406, 0.254535, -0.0627264, 0.965027, -0.941526, 0.211737, 0.2621, -4.2177, 1.84116, -4.5774)
 light_energy = 16.0
 
+[node name="start_stop" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.689672, 2.5, 0.665063)
+
+[node name="mesh" type="MeshInstance3D" parent="start_stop"]
+mesh = SubResource("SphereMesh_gynoj")
+surface_material_override/0 = ExtResource("8_tqx1f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="start_stop"]
+shape = SubResource("SphereShape3D_scstw")
+
 [node name="sequencer" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548, 2.5, 0.936)
 script = ExtResource("16_6ue7p")
@@ -117,18 +127,27 @@ steps = 16
 wait_time = 0.125
 
 [node name="timer_ball" type="MeshInstance3D" parent="sequencer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("SphereMesh_gynoj")
 surface_material_override/0 = ExtResource("8_tqx1f")
 
-[node name="start_stop" type="Area3D" parent="sequencer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12812, 0, 0)
+[node name="sequencer2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.561553, 2.5, 0.665063)
+script = ExtResource("16_6ue7p")
+font = ExtResource("7_150ad")
+path_str = "res://notes/bla"
+pad_scene = ExtResource("17_pakd3")
+steps = 16
 
-[node name="mesh" type="MeshInstance3D" parent="sequencer/start_stop"]
+[node name="Timer" type="Timer" parent="sequencer2"]
+wait_time = 0.125
+
+[node name="timer_ball" type="MeshInstance3D" parent="sequencer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 mesh = SubResource("SphereMesh_gynoj")
 surface_material_override/0 = ExtResource("8_tqx1f")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sequencer/start_stop"]
-shape = SubResource("SphereShape3D_scstw")
-
+[connection signal="area_entered" from="start_stop" to="sequencer" method="_on_start_stop_area_entered"]
+[connection signal="area_entered" from="start_stop" to="sequencer2" method="_on_start_stop_area_entered"]
 [connection signal="timeout" from="sequencer/Timer" to="sequencer" method="_on_timer_timeout"]
-[connection signal="area_entered" from="sequencer/start_stop" to="sequencer" method="_on_start_stop_area_entered"]
+[connection signal="timeout" from="sequencer2/Timer" to="sequencer2" method="_on_timer_timeout"]

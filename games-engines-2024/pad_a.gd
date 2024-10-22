@@ -2,8 +2,8 @@ extends Area3D
 
 var mat:StandardMaterial3D
 
-var out_color:Color = Color.from_hsv(.4, 1, 1, 0.7)
-var in_color:Color = Color.from_hsv(0, 1, 1, 0.7)
+@export var out_color:Color
+@export var in_color:Color
 
 var toggle:bool = false
 
