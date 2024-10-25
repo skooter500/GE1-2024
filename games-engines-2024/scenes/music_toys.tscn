@@ -124,7 +124,8 @@ pad_scene = ExtResource("17_pakd3")
 steps = 16
 
 [node name="Timer" type="Timer" parent="sequencer"]
-wait_time = 0.125
+wait_time = 0.05
+autostart = true
 
 [node name="timer_ball" type="MeshInstance3D" parent="sequencer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
