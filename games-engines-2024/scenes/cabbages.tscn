@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="3_g5xgs"]
 [ext_resource type="Script" path="res://scenes/tower.gd" id="4_27ltx"]
 [ext_resource type="Script" path="res://scenes/taxi.gd" id="5_x51in"]
-[ext_resource type="Texture2D" uid="uid://de0232smetf0t" path="res://vehicles/Textures/colormap.png" id="6_tw3gb"]
+[ext_resource type="Texture2D" uid="uid://yhchob6xf37w" path="res://vehicles/Textures/colormap.png" id="6_tw3gb"]
 [ext_resource type="AudioStream" uid="uid://cvqw5loagu0fw" path="res://vehicles/engine.wav" id="7_b7mui"]
 [ext_resource type="Script" path="res://scenes/TPCamera.gd" id="8_2a3ym"]
 

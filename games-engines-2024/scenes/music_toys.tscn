@@ -1,14 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmxsk4jm7l87j"]
+[gd_scene load_steps=20 format=3 uid="uid://cqi6kv088fque"]
 
 [ext_resource type="Script" path="res://scenes/music_toys.gd" id="1_5r4j1"]
 [ext_resource type="FontFile" uid="uid://rvjbc8pu44du" path="res://fonts/Hyperspace.otf" id="7_150ad"]
-[ext_resource type="Material" uid="uid://bwy778jyvpj15" path="res://seq_mat.tres" id="8_tqx1f"]
+[ext_resource type="Material" path="res://seq_mat.tres" id="8_tqx1f"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="11_g562f"]
 [ext_resource type="Script" path="res://FPController.gd" id="12_xomjn"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="13_wjct6"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="15_sj4n6"]
 [ext_resource type="Script" path="res://sequencer.gd" id="16_6ue7p"]
-[ext_resource type="PackedScene" uid="uid://dm1qa5btl0821" path="res://pad_a.tscn" id="17_pakd3"]
+[ext_resource type="PackedScene" path="res://pad_a.tscn" id="17_pakd3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -48,7 +48,6 @@ transform = Transform3D(-0.486978, -0.857167, -0.16768, -0.325568, -1.4231e-08, 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="ground" type="MeshInstance3D" parent="StaticBody3D"]
-visible = false
 material_override = ExtResource("11_g562f")
 mesh = SubResource("PlaneMesh_00q4b")
 skeleton = NodePath("../..")
