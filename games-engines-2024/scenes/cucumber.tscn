@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4yqkqc20uq4e"]
+[gd_scene load_steps=17 format=3 uid="uid://4yqkqc20uq4e"]
 
 [ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_l18n1"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="2_ve43a"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1bnq83851e46" path="res://bullet.tscn" id="6_hpt3e"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="7_bwa58"]
 [ext_resource type="Script" path="res://scenes/tower.gd" id="8_f610v"]
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="9_nti4n"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -25,6 +26,7 @@ size = Vector3(0.1, 0.1, 1)
 size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yjm47"]
+size = Vector3(1, 1, 2)
 
 [node name="root" type="Node3D"]
 
@@ -101,3 +103,4 @@ brick_size = 1.0
 [node name="enemy" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87, 0.5, -5.159)
 mesh = SubResource("BoxMesh_yjm47")
+script = ExtResource("9_nti4n")
