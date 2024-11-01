@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cajvwsg0035us"]
 
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_4h7ie"]
-[ext_resource type="Script" path="res://scenes/lyonsmane.gd" id="1_oo4ip"]
+[ext_resource type="Script" path="res://scenes/music_toys.gd" id="1_oo4ip"]
 [ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="2_1a2di"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="3_6klb2"]
 [ext_resource type="Script" path="res://scenes/tower.gd" id="4_kmmxv"]

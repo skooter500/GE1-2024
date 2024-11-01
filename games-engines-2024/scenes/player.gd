@@ -46,8 +46,25 @@ func _physics_process(delta: float) -> void:
 	
 	print_stuff()
 	
+	var v1 = global_transform.basis.z
+	var v2 = v1
+	v2.y = 0
+	v2 = v2.normalized()
+	
+	var d = v1.dot(v2)
+	var f = acos(d)
+	
+	DebugDraw2D.set_text("DOT: ", d)
+	DebugDraw2D.set_text("f: ", rad_to_deg(f))
+	
+	
+	
 	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
-	rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
+	
+	
+	
+	if d > 0.5: 
+		rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
 	relative = Vector2.ZERO
 
 

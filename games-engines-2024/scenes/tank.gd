@@ -65,3 +65,25 @@ func _physics_process(delta: float) -> void:
 		bullet.global_rotation = global_rotation
 		timer.start()
 	pass
+	
+@export var enemy:Node3D
+	
+func _process(delta: float) -> void:
+	var e = $"../enemy"
+
+	var toEnemy:Vector3 = e.global_position - global_position
+
+	toEnemy = toEnemy.normalized()
+	var d:float = global_transform.basis.z.dot(toEnemy)
+			
+	var theta = acos(d)
+	var fov = 45
+	theta = rad_to_deg(theta)
+	if theta < fov:
+		DebugDraw2D.set_text("fov", "inside")
+	else:
+		DebugDraw2D.set_text("fov", "outside")
+	
+	DebugDraw2D.set_text("theta", theta)
+
+	pass

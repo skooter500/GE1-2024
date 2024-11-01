@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm1qa5btl0821"]
+
+[ext_resource type="Script" path="res://pad_a.gd" id="1_nyep7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_25gaw"]
+radius = 0.02
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7fbh"]
+transparency = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bjof5"]
+radius = 0.02
+
+[node name="Pad" type="Area3D"]
+script = ExtResource("1_nyep7")
+out_color = Color(0, 1, 0.85, 0.670588)
+in_color = Color(1, 0.95, 0, 0.494118)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_25gaw")
+surface_material_override/0 = SubResource("StandardMaterial3D_e7fbh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bjof5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
