@@ -25,8 +25,25 @@ Welcome to the Metaverse
 - [Godot discord](https://discord.com/invite/godotengine)
 - [Submit your fork of the git repo](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQUYzR082WFNZQUNTSlpZUkY3VzE5N0xBNi4u)
 
-## Week 
+## Week 8 - Physics
+- Physics Nodes
+- git commits on headset
+- Meta Simulator
+- CSGNodes
+- Animation Player
+- XRTK
+- AudioPlayer & effects
+- Bluetooth Audio
+- https://www.reddit.com/r/godot/
 
+## Week 7 - Review Week Music Jam
+- [](https://tudublin-my.sharepoint.com/:v:/r/personal/bryan_duggan_tudublin_ie/Documents/Recordings/Game%20Engines%20Class-20241101_143745-Meeting%20Recording.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=7baazR)
+
+## Week 6 - Quaternions
+- [This is the recording from last year](https://tudublin-my.sharepoint.com/personal/bryan_duggan_tudublin_ie/_layouts/15/stream.aspx?id=%2Fpersonal%2Fbryan%5Fduggan%5Ftudublin%5Fie%2FDocuments%2FRecordings%2FGame%20Engines%20Class%2D20231020%5F140544%2DMeeting%20Recording%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZyIsInJlZmVycmFsQXBwUGxhdGZvcm0iOiJXZWIiLCJyZWZlcnJhbE1vZGUiOiJ2aWV3In19&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ea83c227f%2D94fa%2D413f%2Da5bd%2D1aec107fa998)
+
+## Week 5 - Vectors & Movement
+- 
 
 ## Week 4 - GodotCon
 - I will not be around on Friday, but I have added lots of examples to the repo
