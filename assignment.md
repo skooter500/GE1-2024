@@ -20,6 +20,7 @@ For this assignment you will use your creativity, and demonstrate competency wit
 - Concertina
 
 There are several examples in this repository you can try out for inspiration.
+You can use CSG Shapes or use Blender
 
 ## Rubric
 
