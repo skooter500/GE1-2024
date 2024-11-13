@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cmxsk4jm7l87j"]
 
-[ext_resource type="Script" path="res://scenes/music_toys.gd" id="1_5r4j1"]
+[ext_resource type="Script" path="res://music_toys.gd" id="1_5r4j1"]
 [ext_resource type="FontFile" uid="uid://rvjbc8pu44du" path="res://fonts/Hyperspace.otf" id="7_150ad"]
 [ext_resource type="Material" uid="uid://bwy778jyvpj15" path="res://seq_mat.tres" id="8_tqx1f"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="11_g562f"]

@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2cnv7v7huh3k"]
+[gd_scene load_steps=18 format=3 uid="uid://d2cnv7v7huh3k"]
 
-[ext_resource type="Script" path="res://scenes/TPCamera.gd" id="1_1bql5"]
+[ext_resource type="Script" path="res://TPCamera.gd" id="1_1bql5"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="1_ljfv3"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="2_cp1av"]
-[ext_resource type="Script" path="res://scenes/tank.gd" id="3_1hidi"]
-[ext_resource type="Script" path="res://scenes/wall.gd" id="4_x4eqr"]
+[ext_resource type="Script" path="res://tank.gd" id="3_1hidi"]
+[ext_resource type="Script" path="res://wall.gd" id="4_x4eqr"]
 [ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="5_nw2f7"]
 [ext_resource type="PackedScene" uid="uid://c1bnq83851e46" path="res://bullet.tscn" id="6_ngcvm"]
-[ext_resource type="Script" path="res://scenes/tower.gd" id="8_57hm3"]
+[ext_resource type="Script" path="res://tower.gd" id="8_57hm3"]
+[ext_resource type="Texture2D" uid="uid://ctgg1netpt4r6" path="res://icon.svg" id="9_eh4lc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -23,6 +24,11 @@ size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yo8sf"]
 size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jb5pm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh1m8"]
+albedo_texture = ExtResource("9_eh4lc")
 
 [node name="root" type="Node3D"]
 
@@ -94,3 +100,11 @@ brick_scene = ExtResource("5_nw2f7")
 radius = 5.0
 elements = 22
 brick_size = 1.0
+
+[node name="enemy" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9416, 0, -6.55676)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_jb5pm")
+surface_material_override/0 = SubResource("StandardMaterial3D_hh1m8")
