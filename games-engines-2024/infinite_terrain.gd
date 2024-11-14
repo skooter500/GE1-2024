@@ -15,6 +15,8 @@ func _ready():
 		var tt = tile_prefab.instantiate()
 		if tt.has_method("get_quads_per_tile"):
 			quads_per_tile = tt.get_quads_per_tile()
+		if tt.has_method("get_quads_per_tile"):
+			quads_per_tile = tt.get_quads_per_tile()
 		tt.queue_free()
 	
 	# If no player set, use camera

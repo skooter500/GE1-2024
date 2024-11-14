@@ -2,6 +2,7 @@ extends Node3D
 
 @export var quads_per_tile: int = 10
 @export var height_scale: float = 10.0  
+@export var width_scale: float = 10.0  
 @export var perlin_scale: float = 0.1
 @export var speed: float = 1.0
 @export var material: Material
@@ -26,8 +27,8 @@ func sample_cell(row: float, col: float) -> float:
 	var world_pos = global_position
 	
 	# Add the world position to the sampling coordinates
-	var sample_x = (col + world_pos.x) * perlin_scale
-	var sample_z = (row + world_pos.z) * perlin_scale
+	var sample_x = ((col * width_scale) + world_pos.x) * perlin_scale
+	var sample_z = ((row * width_scale) + world_pos.z) * perlin_scale
 	
 	return noise_2d(sample_x, sample_z) * height_scale
 	
@@ -58,10 +59,10 @@ func create_mesh():
 	# Generate vertices and triangles
 	for row in range(quads_per_tile):
 		for col in range(quads_per_tile):
-			var bl = bottom_left + Vector3(col, sample_cell(row, col), row)
-			var tl = bottom_left + Vector3(col, sample_cell(row + 1, col), row + 1)
-			var tr = bottom_left + Vector3(col + 1, sample_cell(row + 1, col + 1), row + 1)
-			var br = bottom_left + Vector3(col + 1, sample_cell(row, col + 1), row)
+			var bl = bottom_left + Vector3(col * width_scale, sample_cell(row, col), row * width_scale)
+			var tl = bottom_left + Vector3(col * width_scale, sample_cell(row + 1, col), (row + 1) * width_scale)
+			var tr = bottom_left + Vector3((col + 1) * width_scale, sample_cell(row + 1, col + 1), (row + 1) * width_scale)
+			var br = bottom_left + Vector3((col + 1) * width_scale, sample_cell(row, col + 1), row * width_scale)
 			
 			# Calculate normal for first triangle
 			
