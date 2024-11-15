@@ -4,7 +4,7 @@ extends Node3D
 @export var height_scale: float = 10.0  
 @export var width_scale: float = 10.0  
 @export var perlin_scale: float = 0.1
-@export var speed: float = 1.0
+@export var speed: float = 10.0
 @export var material: Material
 
 var mesh_instance: MeshInstance3D
@@ -84,7 +84,7 @@ func create_mesh():
 func noise_2d(x: float, y: float) -> float:
 	# Simple implementation of 2D noise using FastNoiseLite
 	var noise = FastNoiseLite.new()
-	noise.seed = 1234
+	noise.seed = 12345
 	noise.frequency = 1.0
 	return (noise.get_noise_2d(x, y) + 1.0) / 2.0
 
