@@ -12,7 +12,7 @@
 [node name="terrain_gen" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 5)
 script = ExtResource("2_rl0e7")
 speed = 100.0
 rot_speed = 180.0

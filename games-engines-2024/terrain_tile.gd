@@ -6,13 +6,23 @@ extends Node3D
 @export var perlin_scale: float = 0.1
 @export var speed: float = 1.0
 @export var material: Material
+@export var noise_octaves: int = 4  # Number of noise layers
+@export var noise_persistence: float = 0.5  # How much each octave contributes
+@export var noise_lacunarity: float = 2.0  # How frequency changes between octaves
+@export var plateau_height: float = 0.7  # Height at which plateaus form
+@export var valley_depth: float = 0.3  # Depth of valleys
+@export var terrain_roughness: float = 1.5  # Overall terrain roughness
 
 var mesh_instance: MeshInstance3D
 var collision_shape: CollisionShape3D
 var current_mesh: ArrayMesh
 var t: float = 0.0
+var noise: FastNoiseLite
 
 func _enter_tree():
+	noise = FastNoiseLite.new()
+	noise.seed = randi()  # Random seed each time
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
 	await get_tree().process_frame
 	generate_mesh()
 
@@ -21,13 +31,56 @@ func _ready():
 
 func sample_cell(row: float, col: float) -> float:
 	var world_pos = global_position
-	var sample_x = ((col * width_scale) + world_pos.x) * perlin_scale
-	var sample_z = ((row * width_scale) + world_pos.z) * perlin_scale
 	
-	var height = noise_2d(sample_x, sample_z)
-	height *= 6
-	height *= abs(height)
-	height = int(height/0.5)
+	# Get base coordinates
+	var base_x = ((col * width_scale) + world_pos.x) * perlin_scale
+	var base_z = ((row * width_scale) + world_pos.z) * perlin_scale
+	
+	# Generate multilayered noise (octaves)
+	var amplitude: float = 1.0
+	var frequency: float = 1.0
+	var height: float = 0.0
+	var max_possible_height: float = 0.0
+	
+	# Add multiple layers of noise
+	for i in noise_octaves:
+		var sample_x = base_x * frequency
+		var sample_z = base_z * frequency
+		
+		# Get noise value and shape it
+		var noise_val = noise.get_noise_2d(sample_x, sample_z)
+		height += noise_val * amplitude
+		
+		# Keep track of maximum possible height for normalization
+		max_possible_height += amplitude
+		
+		# Adjust for next octave
+		amplitude *= noise_persistence
+		frequency *= noise_lacunarity
+	
+	# Normalize height to 0-1 range
+	height = (height + max_possible_height) / (max_possible_height * 2.0)
+	
+	# Apply terrain shaping functions
+	height = shape_terrain(height)
+	
+	# Scale the final height
+	return height * height_scale
+
+func shape_terrain(height: float) -> float:
+	# Create plateaus
+	if height > plateau_height:
+		var plateau_factor = (height - plateau_height) / (1.0 - plateau_height)
+		height = plateau_height + (plateau_factor * plateau_factor * (1.0 - plateau_height))
+	
+	# Deepen valleys
+	if height < valley_depth:
+		var valley_factor = height / valley_depth
+		height = height * (valley_factor * valley_factor)
+	
+	# Apply overall terrain roughness
+	height = pow(height, terrain_roughness)
+	
 	return height
 
 func generate_mesh():
@@ -100,7 +153,4 @@ func create_mesh():
 	current_mesh = st.commit()
 
 func noise_2d(x: float, y: float) -> float:
-	var noise = FastNoiseLite.new()
-	noise.seed = 1234
-	noise.frequency = 1.0
 	return (noise.get_noise_2d(x, y) + 1.0) / 2.0
