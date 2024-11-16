@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk1x3ut571mbg"]
+[gd_scene load_steps=3 format=3 uid="uid://ckd7arxxwrn4u"]
 
 [ext_resource type="Script" path="res://terrain_tile.gd" id="1_fx5wr"]
 [ext_resource type="Script" path="res://FPController.gd" id="2_tr5qu"]
@@ -7,6 +7,10 @@
 
 [node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("1_fx5wr")
+height_scale = 100.0
+perlin_scale = 0.0
+low = 0.6
+high = 0.4
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.231188, 0.972909, 0, -0.972909, 0.231188, 0, 2.45733, 0)

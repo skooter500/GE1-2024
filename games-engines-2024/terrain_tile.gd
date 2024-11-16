@@ -7,6 +7,10 @@ extends Node3D
 @export var speed: float = 1.0
 @export var material: Material
 
+@export var low:float = 1
+@export var high:float = 0
+
+
 var mesh_instance: MeshInstance3D
 var collision_shape: CollisionShape3D
 var current_mesh: ArrayMesh
@@ -23,11 +27,17 @@ func sample_cell(row: float, col: float) -> float:
 	var world_pos = global_position
 	var sample_x = ((col * width_scale) + world_pos.x) * perlin_scale
 	var sample_z = ((row * width_scale) + world_pos.z) * perlin_scale
-	
-	var height = noise_2d(sample_x, sample_z)
-	height *= 6
-	height *= abs(height)
-	height = int(height/0.5)
+	var noise = noise_2d(sample_x, sample_z)
+	print(noise)
+	var mid = 0.5
+	if noise > high:
+		noise = mid + (noise - high)
+	elif noise < low:
+		noise = mid + (noise - low)
+	else:
+		noise = mid
+
+	var height = noise * 100
 	return height
 
 func generate_mesh():
@@ -97,6 +107,7 @@ func create_mesh():
 			st.add_vertex(tl)
 	
 	st.generate_tangents()
+	st.generate_normals()
 	current_mesh = st.commit()
 
 func noise_2d(x: float, y: float) -> float:
