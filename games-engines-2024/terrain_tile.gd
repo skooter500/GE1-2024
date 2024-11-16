@@ -30,7 +30,15 @@ func sample_cell(row: float, col: float) -> float:
 	var sample_x = ((col * width_scale) + world_pos.x) * perlin_scale
 	var sample_z = ((row * width_scale) + world_pos.z) * perlin_scale
 	
-	return noise_2d(sample_x, sample_z) * height_scale
+	var height = noise_2d(sample_x, sample_z)
+	height *= 6
+	height *= abs(height)
+	height = int(height/0.5)
+	return height
+	
+	
+	#return noise_2d(sample_x, sample_z) * height_scale
+	# return sin(sample_x) * sin(sample_z) * height_scale
 	
 func generate_mesh():
 	mesh_instance = MeshInstance3D.new()
@@ -77,8 +85,8 @@ func create_mesh():
 			st.add_vertex(br)
 	
 			st.generate_normals()
-	# We might not need generate_normals() anymore since we're setting them manually
-	# st.generate_normals()
+	st.generate_normals()
+	st.generate_tangents()
 	current_mesh = st.commit()
 
 func noise_2d(x: float, y: float) -> float:

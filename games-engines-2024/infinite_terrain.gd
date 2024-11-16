@@ -2,21 +2,21 @@ extends Node3D
 
 @export var tile_prefab: PackedScene
 @export var player: Node3D
-@export var quads_per_tile: int
 @export var half_tile: int = 5
 
 var old_game_objects: Array = []
 var tiles: Dictionary = {}
 var start_pos: Vector3
 
+var quads_per_tile
+var width_scale
+
 func _ready():
 	# Get terrain tile info from prefab if possible
 	if tile_prefab:
 		var tt = tile_prefab.instantiate()
-		if tt.has_method("get_quads_per_tile"):
-			quads_per_tile = tt.get_quads_per_tile()
-		if tt.has_method("get_quads_per_tile"):
-			quads_per_tile = tt.get_quads_per_tile()
+		quads_per_tile = tt.quads_per_tile
+		width_scale = tt.width_scale
 		tt.queue_free()
 	
 	# If no player set, use camera
@@ -44,12 +44,13 @@ func generate_world_around_player():
 			var obj = old_game_objects.pop_front()
 			obj.queue_free()
 			
-		if abs(x_move) >= quads_per_tile or abs(z_move) >= quads_per_tile:
+		var tile_width = quads_per_tile * width_scale
+		if abs(x_move) >= tile_width or abs(z_move) >= tile_width:
 			var update_time = Time.get_ticks_msec() / 1000.0
 			
 			# Force integer position and round to nearest tilesize
-			var player_x = floor(player.position.x / quads_per_tile) * quads_per_tile
-			var player_z = floor(player.position.z / quads_per_tile) * quads_per_tile
+			var player_x = floor(player.position.x / tile_width) * tile_width
+			var player_z = floor(player.position.z / tile_width) * tile_width
 			
 			var new_tiles: Array = []
 			
@@ -57,9 +58,9 @@ func generate_world_around_player():
 			for x in range(-half_tile, half_tile):
 				for z in range(-half_tile, half_tile):
 					var pos = Vector3(
-						x * quads_per_tile + player_x,
+						x * tile_width + player_x,
 						0,
-						z * quads_per_tile + player_z
+						z * tile_width + player_z
 					)
 					
 					var tilename = "Tile_%d_%d" % [int(pos.x), int(pos.z)]

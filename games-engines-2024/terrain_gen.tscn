@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://boh8e6hop7l3w"]
+[gd_scene load_steps=7 format=3 uid="uid://boh8e6hop7l3w"]
 
 [ext_resource type="Script" path="res://FPController.gd" id="2_rl0e7"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="2_s74er"]
@@ -7,11 +7,14 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_hmt7t"]
 
+[sub_resource type="Environment" id="Environment_g3xt2"]
+
 [node name="terrain_gen" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.827992, 0.56074, 0, -0.56074, 0.827992, 0, 10.3493, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 5)
 script = ExtResource("2_rl0e7")
+speed = 100.0
 rot_speed = 180.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -25,4 +28,6 @@ mesh = SubResource("BoxMesh_hmt7t")
 script = ExtResource("4_c8kae")
 tile_prefab = ExtResource("3_vb03k")
 player = NodePath("../Camera3D")
-quads_per_tile = 100
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g3xt2")
