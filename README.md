@@ -25,6 +25,9 @@ Welcome to the Metaverse
 - [Godot discord](https://discord.com/invite/godotengine)
 - [Submit your fork of the git repo](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQUYzR082WFNZQUNTSlpZUkY3VzE5N0xBNi4u)
 
+## Week 9 - Infinite Terrain
+- 
+
 ## Week 8 - Physics
 - Physics Nodes
 - git commits on headset
