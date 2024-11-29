@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://jet.gd" id="3_qrdwy"]
 [ext_resource type="AudioStream" uid="uid://cvfdwxpfqpcbm" path="res://jet.wav" id="4_h6qey"]
 [ext_resource type="PackedScene" uid="uid://d2v5tptyj6j6i" path="res://terrain_tile.tscn" id="4_kgxkb"]
-[ext_resource type="PackedScene" path="res://gpu_particles_3d.tscn" id="4_so2dn"]
+[ext_resource type="PackedScene" uid="uid://b3udq6hxbkwpm" path="res://gpu_particles_3d.tscn" id="4_so2dn"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o04m7"]
 top_radius = 0.05
@@ -18,22 +18,24 @@ radial_segments = 8
 size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_log54"]
-radius = 0.05
 
 [sub_resource type="BoxMesh" id="BoxMesh_hmt7t"]
 
 [sub_resource type="Environment" id="Environment_g3xt2"]
 background_mode = 1
+background_color = Color(0.962493, 0.195445, 0.946711, 1)
 
 [node name="terrain_gen" type="Node3D"]
 script = ExtResource("1_3vsxn")
 
 [node name="player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
-gravity_scale = 0.0
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.1
 
 [node name="XROrigin" type="XROrigin3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="player/XROrigin"]
 
@@ -42,7 +44,7 @@ tracker = &"left_hand"
 
 [node name="jet" type="Node3D" parent="player/XROrigin/left"]
 script = ExtResource("3_qrdwy")
-power = 5.0
+power = 2.0
 
 [node name="GPUParticles3D" parent="player/XROrigin/left/jet" instance=ExtResource("4_so2dn")]
 transform = Transform3D(0.05, 0, 0, 0, -0.05, -4.37114e-09, 0, 4.37114e-09, -0.05, -0.004, -0.125046, 0.0022963)
@@ -51,6 +53,7 @@ amount = 1000
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player/XROrigin/left/jet"]
 stream = ExtResource("4_h6qey")
+volume_db = -80.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/left/jet"]
 mesh = SubResource("CylinderMesh_o04m7")
@@ -70,7 +73,7 @@ shape = SubResource("BoxShape3D_pg75b")
 
 [node name="jet" type="Node3D" parent="player/XROrigin/right"]
 script = ExtResource("3_qrdwy")
-power = 5.0
+power = 2.0
 
 [node name="GPUParticles3D" parent="player/XROrigin/right/jet" instance=ExtResource("4_so2dn")]
 transform = Transform3D(0.05, 0, 0, 0, -0.05, -4.37114e-09, 0, 4.37114e-09, -0.05, -0.004, -0.125046, 0.0022963)
@@ -79,6 +82,7 @@ amount = 1000
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player/XROrigin/right/jet"]
 stream = ExtResource("4_h6qey")
+volume_db = -80.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player/XROrigin/right/jet"]
 mesh = SubResource("CylinderMesh_o04m7")
@@ -88,6 +92,7 @@ shape = SubResource("SphereShape3D_log54")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.474672, 0.880163, 0, -0.633669, 0.341738, 0.69403, 0.61086, -0.329437, 0.719946, 0, 11.0446, 0)
+light_energy = 2.248
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = ExtResource("2_4i637")

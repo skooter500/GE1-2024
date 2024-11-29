@@ -24,9 +24,9 @@ func _physics_process(delta):
 
 	lerped_trigger = lerp(lerped_trigger, trigger, delta * 5.0)	
 	if lerped_trigger > 0.1:	
-		if not audio.playing:
-			audio.play()
-		audio.volume_db = remap(lerped_trigger, 0, 1, -80, 20)
+		#if not audio.playing:
+			#audio.play()
+		#audio.volume_db = remap(lerped_trigger, 0, 1, -80, 20)
 		var force = - global_transform.basis.y * power * trigger
 		player.apply_force(-force, Vector3.ZERO)
 		

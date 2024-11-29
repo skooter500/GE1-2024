@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1d0qb5gdb60v"]
+[gd_scene load_steps=8 format=3 uid="uid://b3udq6hxbkwpm"]
 
-[ext_resource type="Material" uid="uid://dohx2u81lglvd" path="res://jet_material.tres" id="1_ea2w4"]
+[ext_resource type="Material" path="res://jet_material.tres" id="1_ea2w4"]
 
 [sub_resource type="Gradient" id="Gradient_em1vl"]
 offsets = PackedFloat32Array(0.00701754, 0.189189, 0.432432, 1)
@@ -21,8 +21,8 @@ curve = SubResource("Curve_kip11")
 particle_flag_align_y = true
 direction = Vector3(0, 1, 0)
 spread = 10.0
-initial_velocity_min = 20.0
-initial_velocity_max = 50.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
 angular_velocity_min = 1.0
 angular_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)

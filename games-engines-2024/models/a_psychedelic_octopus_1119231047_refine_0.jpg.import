@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bbqjjrnos36mu"
+path.s3tc="res://.godot/imported/a_psychedelic_octopus_1119231047_refine_0.jpg-6acff249ba78cc4461ae7b3015504b9a.s3tc.ctex"
+path.etc2="res://.godot/imported/a_psychedelic_octopus_1119231047_refine_0.jpg-6acff249ba78cc4461ae7b3015504b9a.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "53a5df6c8204cd4317a35f92ced858aa"
+}
+
+[deps]
+
+source_file="res://models/a_psychedelic_octopus_1119231047_refine_0.jpg"
+dest_files=["res://.godot/imported/a_psychedelic_octopus_1119231047_refine_0.jpg-6acff249ba78cc4461ae7b3015504b9a.s3tc.ctex", "res://.godot/imported/a_psychedelic_octopus_1119231047_refine_0.jpg-6acff249ba78cc4461ae7b3015504b9a.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
