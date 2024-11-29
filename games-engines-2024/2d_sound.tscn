@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://o8v8ykgujmch"]
+
+[ext_resource type="Script" path="res://music_friday.gd" id="1_10w1d"]
+[ext_resource type="AudioStream" uid="uid://byd6dob27syv4" path="res://gen_ai/Colors in Harmony.mp3" id="2_s38hy"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_10w1d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_s38hy")
+parameters/looping = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 138.0
+offset_top = 128.0
+offset_right = 228.0
+offset_bottom = 159.0
+text = "Play Music
+"
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 150.0
+offset_top = 252.0
+offset_right = 597.0
+offset_bottom = 288.0
+max_value = 5.0
+step = 0.1
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
