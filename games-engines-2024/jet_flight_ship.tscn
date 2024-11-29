@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://start_xr.gd" id="1_au36x"]
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="2_yv2i0"]
 [ext_resource type="PackedScene" uid="uid://w4ere7rfy3l5" path="res://models/a_low_poly_sci_fi_spa_1129210755_texture.glb" id="3_6glea"]
-[ext_resource type="PackedScene" uid="uid://b3udq6hxbkwpm" path="res://gpu_particles_3d.tscn" id="3_purc4"]
+[ext_resource type="Script" path="res://shoot.gd" id="3_ac6ul"]
 [ext_resource type="Script" path="res://behaviors/PlayerSteering.gd" id="5_ewhjn"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="5_lblp4"]
 [ext_resource type="Script" path="res://infinite_terrain.gd" id="6_uyb8m"]
@@ -27,17 +27,18 @@ script = ExtResource("2_yv2i0")
 banking = 0.5
 draw_gizmos = false
 
-[node name="GPUParticles3D" parent="player" instance=ExtResource("3_purc4")]
-transform = Transform3D(-2.18557e-09, -0.05, 0, -0.05, 2.18557e-09, 4.37114e-09, -4.37114e-09, 1.91069e-16, -0.05, -2.004, 49.7801, 0.390848)
-visible = false
-material_override = null
-amount = 1000
+[node name="gun" type="Marker3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549156, -0.100742, 0.347108)
+script = ExtResource("3_ac6ul")
+
+[node name="Marker3D2" type="Marker3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548653, -0.087307, 0.354358)
 
 [node name="a_low_poly_sci_fi_spa_1129210755_texture" parent="player" instance=ExtResource("3_6glea")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="cam_target" type="Node3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000816524, 0.855106, -5.48124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000816524, 0.965019, -2.55018)
 
 [node name="player_steering" type="Node" parent="player"]
 script = ExtResource("5_ewhjn")
