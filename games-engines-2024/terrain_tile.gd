@@ -28,7 +28,6 @@ func sample_cell(row: float, col: float) -> float:
 	var sample_x = ((col * width_scale) + world_pos.x) * perlin_scale
 	var sample_z = ((row * width_scale) + world_pos.z) * perlin_scale
 	var noise = noise_2d(sample_x, sample_z)
-	print(noise)
 	var mid = 0.5
 	if noise > high:
 		noise = mid + (noise - high)

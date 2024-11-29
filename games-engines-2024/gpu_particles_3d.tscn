@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1d0qb5gdb60v"]
+
+[ext_resource type="Material" uid="uid://dohx2u81lglvd" path="res://jet_material.tres" id="1_ea2w4"]
+
+[sub_resource type="Gradient" id="Gradient_em1vl"]
+offsets = PackedFloat32Array(0.00701754, 0.189189, 0.432432, 1)
+colors = PackedColorArray(1, 0.984314, 0, 0, 1, 0.983333, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_akxxs"]
+gradient = SubResource("Gradient_em1vl")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_kip11"]
+_data = [Vector2(0, 0.505263), 0.0, 0.0, 0, 0, Vector2(0.355731, 0.915789), 0.0, 0.0, 0, 0, Vector2(1, 0.0421052), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3xgau"]
+curve = SubResource("Curve_kip11")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amrs5"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+tangential_accel_min = 1.0
+tangential_accel_max = 5.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_3xgau")
+color_ramp = SubResource("GradientTexture1D_akxxs")
+
+[sub_resource type="PrismMesh" id="PrismMesh_y464p"]
+material = ExtResource("1_ea2w4")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(0.05, 0, 0, 0, -0.05, -4.37114e-09, 0, 4.37114e-09, -0.05, -0.004, -0.125, -0.007)
+material_override = ExtResource("1_ea2w4")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_amrs5")
+draw_pass_1 = SubResource("PrismMesh_y464p")
