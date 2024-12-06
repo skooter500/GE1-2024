@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmxsk4jm7l87j"]
+[gd_scene load_steps=19 format=3 uid="uid://cmxsk4jm7l87j"]
 
-[ext_resource type="Script" path="res://music_toys.gd" id="1_5r4j1"]
+[ext_resource type="Script" uid="uid://g7ign1nxf6kj" path="res://music_toys.gd" id="1_5r4j1"]
 [ext_resource type="FontFile" uid="uid://rvjbc8pu44du" path="res://fonts/Hyperspace.otf" id="7_150ad"]
 [ext_resource type="Material" uid="uid://bwy778jyvpj15" path="res://seq_mat.tres" id="8_tqx1f"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="11_g562f"]
-[ext_resource type="Script" path="res://FPController.gd" id="12_xomjn"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="13_wjct6"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="15_sj4n6"]
 [ext_resource type="Script" path="res://sequencer.gd" id="16_6ue7p"]
@@ -61,8 +60,6 @@ environment = SubResource("Environment_c4jos")
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-script = ExtResource("12_xomjn")
-rot_speed = 180.0
 
 [node name="XROrigin" type="XROrigin3D" parent="player"]
 

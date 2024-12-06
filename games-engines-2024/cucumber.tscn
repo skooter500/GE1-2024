@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1bnq83851e46" path="res://bullet.tscn" id="6_hpt3e"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="7_bwa58"]
 [ext_resource type="Script" path="res://tower.gd" id="8_f610v"]
-[ext_resource type="Script" path="res://enemy.gd" id="9_nti4n"]
+[ext_resource type="Script" uid="uid://bnmfcw2ba5vyw" path="res://enemy.gd" id="9_nti4n"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)

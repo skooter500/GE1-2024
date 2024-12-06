@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://vnir5kgm2ejf"]
 
-[ext_resource type="Script" path="res://note1.gd" id="1_n5jtc"]
-[ext_resource type="Script" path="res://music_toys.gd" id="1_x0d74"]
+[ext_resource type="Script" uid="uid://blhnakn6fdnka" path="res://note1.gd" id="1_n5jtc"]
+[ext_resource type="Script" uid="uid://g7ign1nxf6kj" path="res://music_toys.gd" id="1_x0d74"]
 [ext_resource type="PackedScene" uid="uid://c60ccofffepc0" path="res://gen_ai/head_stand1.fbx" id="2_ivwwn"]
 [ext_resource type="AudioStream" uid="uid://byd6dob27syv4" path="res://gen_ai/Colors in Harmony.mp3" id="3_5drkx"]
 [ext_resource type="Material" path="res://Holo/bee.tres" id="3_osj8m"]

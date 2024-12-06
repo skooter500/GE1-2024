@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2v5tptyj6j6i"]
 
 [ext_resource type="Script" path="res://terrain_tile.gd" id="1_d16af"]
-[ext_resource type="Material" path="res://Holo/holo1.tres" id="2_pptfn"]
+[ext_resource type="Material" path="res://Holo/smiley2.tres" id="2_4x2h8"]
 
 [node name="terrain_tile" type="Node3D"]
 script = ExtResource("1_d16af")
 height_scale = 10000.0
 width_scale = 5.0
 perlin_scale = 0.01
-material = ExtResource("2_pptfn")
+material = ExtResource("2_4x2h8")
 low = 0.4
 high = 0.6

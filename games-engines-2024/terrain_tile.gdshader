@@ -8,10 +8,10 @@ vec3 hsb2rgb(vec3 c) {
 void vertex() {
     // Normalize Y position to 0-1 range
     float normalized_y = (VERTEX.y + 1.0) * 0.5;
-    
+
     // Convert to HSB (hue based on y position, full saturation and brightness)
     vec3 hsb = vec3(normalized_y, 1.0, 1.0);
-    
+
     // Convert HSB to RGB and set as vertex color
     COLOR.rgb = hsb2rgb(hsb);
     COLOR.a = 1.0;

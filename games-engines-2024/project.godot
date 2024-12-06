@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Games Engines 2024"
-run/main_scene="res://jet_flight.tscn"
+run/main_scene="res://music_toys.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,7 +22,11 @@ XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

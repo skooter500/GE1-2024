@@ -3,12 +3,12 @@ class_name Root extends Node3D
 
 @onready var environment:Environment = $WorldEnvironment.environment
 
-func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_F:
-		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+#func _input(event):
+	#if event is InputEventKey and event.pressed and event.keycode == KEY_F:
+		#if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		#else:
+			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 var xr_interface: XRInterface
 
@@ -34,10 +34,8 @@ func _ready():
 			return false
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
-	get_window().set_current_screen(1)
 	
 	get_viewport().transparent_bg = true
 	environment.background_mode = Environment.BG_CLEAR_COLOR
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	get_window().set_current_screen(1)
 	pass

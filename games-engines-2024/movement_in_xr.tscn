@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://prvigccg8cta"]
 
-[ext_resource type="Script" path="res://music_toys.gd" id="1_vwdhj"]
+[ext_resource type="Script" uid="uid://g7ign1nxf6kj" path="res://music_toys.gd" id="1_vwdhj"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_widw5"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_d1xpo"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="4_sxyf8"]
@@ -12,11 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://bqs3l1q3cyu1q" path="res://samples/kick-808.wav" id="10_uxytj"]
 [ext_resource type="AudioStream" uid="uid://b85mjbi4mwe7" path="res://samples/openhat-808.wav" id="11_fqvv2"]
 [ext_resource type="AudioStream" uid="uid://bm6khvhmy5x3v" path="res://samples/perc-808.wav" id="12_b7p7j"]
-[ext_resource type="Script" path="res://FPController.gd" id="12_g01t0"]
 [ext_resource type="AudioStream" uid="uid://bcdifgq3rf4t0" path="res://samples/snare-808.wav" id="13_pino4"]
 [ext_resource type="AudioStream" uid="uid://b4m5q70d3w2a7" path="res://samples/tom-808.wav" id="14_311fk"]
 [ext_resource type="Script" path="res://sequencer.gd" id="15_mr8ci"]
 [ext_resource type="PackedScene" uid="uid://dm1qa5btl0821" path="res://pad_a.tscn" id="16_m0tst"]
+[ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="17_hul1c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
@@ -120,8 +120,6 @@ environment = SubResource("Environment_c4jos")
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-script = ExtResource("12_g01t0")
-rot_speed = 180.0
 
 [node name="XROrigin" type="XROrigin3D" parent="player"]
 
@@ -170,6 +168,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62169, 0, 1.6686)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382823, 1.95665, 1.56281)
 script = ExtResource("15_mr8ci")
 pad_scene = ExtResource("16_m0tst")
+
+[node name="XRSimulator" parent="." instance=ExtResource("17_hul1c")]
 
 [editable path="pads/Pad8"]
 [editable path="pads/Pad2"]
