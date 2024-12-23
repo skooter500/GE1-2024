@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1bnq83851e46"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_12hsy"]
+[ext_resource type="Script" uid="uid://b1wh8lvtq1g7m" path="res://bullet.gd" id="1_12hsy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_25qko"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -18,7 +18,5 @@ mesh = SubResource("BoxMesh_25qko")
 shape = SubResource("BoxShape3D_4njcl")
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

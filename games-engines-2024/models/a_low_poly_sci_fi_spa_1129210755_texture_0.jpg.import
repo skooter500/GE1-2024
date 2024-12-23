@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://brfuiw6en42pn"
+path.s3tc="res://.godot/imported/a_low_poly_sci_fi_spa_1129210755_texture_0.jpg-758cd4f31c5366c322b5da1f9722c56f.s3tc.ctex"
+path.etc2="res://.godot/imported/a_low_poly_sci_fi_spa_1129210755_texture_0.jpg-758cd4f31c5366c322b5da1f9722c56f.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "10cb8347a84e237b993e3cf45157254a"
+}
+
+[deps]
+
+source_file="res://models/a_low_poly_sci_fi_spa_1129210755_texture_0.jpg"
+dest_files=["res://.godot/imported/a_low_poly_sci_fi_spa_1129210755_texture_0.jpg-758cd4f31c5366c322b5da1f9722c56f.s3tc.ctex", "res://.godot/imported/a_low_poly_sci_fi_spa_1129210755_texture_0.jpg-758cd4f31c5366c322b5da1f9722c56f.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,98 @@
+[gd_scene load_steps=17 format=3 uid="uid://bu1yheivmhfdc"]
+
+[ext_resource type="Script" uid="uid://cus7x4n3jhrq0" path="res://start_xr.gd" id="1_au36x"]
+[ext_resource type="Script" uid="uid://mxh17slwdh7m" path="res://behaviors/Boid.gd" id="2_yv2i0"]
+[ext_resource type="PackedScene" uid="uid://w4ere7rfy3l5" path="res://models/a_low_poly_sci_fi_spa_1129210755_texture.glb" id="3_6glea"]
+[ext_resource type="Script" uid="uid://bfl6r1gd6hmks" path="res://behaviors/PlayerSteering.gd" id="5_ewhjn"]
+[ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="5_lblp4"]
+[ext_resource type="Texture2D" uid="uid://24bmqtucpobt" path="res://addons/trailmesh/example/albedo.png" id="6_qnefe"]
+[ext_resource type="Script" uid="uid://58ds2qjm5m0k" path="res://infinite_terrain.gd" id="6_uyb8m"]
+[ext_resource type="Texture2D" uid="uid://dtcj7h4kvugrc" path="res://addons/trailmesh/example/normal.png" id="7_3n501"]
+[ext_resource type="PackedScene" uid="uid://d2v5tptyj6j6i" path="res://terrain_tile.tscn" id="7_c3k2y"]
+[ext_resource type="Script" uid="uid://bwbxds2lwby8o" path="res://TPCamera.gd" id="7_i67u7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_picyu"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opevk"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_qnefe")
+normal_enabled = true
+normal_texture = ExtResource("7_3n501")
+
+[sub_resource type="Curve" id="Curve_n7l8b"]
+_data = [Vector2(0, 0.442105), 0.0, 0.0, 0, 0, Vector2(0.0666667, 1), 0.0, 0.0, 0, 0, Vector2(0.494774, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_qdsoh"]
+offsets = PackedFloat32Array(0, 0.0430622, 0.110048, 0.148325, 0.636364, 1)
+colors = PackedColorArray(0.935253, 0.870798, 0, 1, 0.77211, 0.461309, 0, 1, 0.507002, 0.064326, 0.108996, 1, 0.190762, 0.190762, 0.190762, 1, 0.737193, 0.737193, 0.737193, 0.8, 0.25098, 0.25098, 0.25098, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hmt7t"]
+
+[sub_resource type="Environment" id="Environment_g3xt2"]
+background_mode = 1
+
+[node name="terrain_gen" type="Node3D"]
+script = ExtResource("1_au36x")
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
+script = ExtResource("2_yv2i0")
+banking = 0.5
+draw_gizmos = false
+
+[node name="gun" type="Marker3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549156, -0.100742, 0.347108)
+
+[node name="Marker3D2" type="Marker3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548653, -0.087307, 0.354358)
+
+[node name="a_low_poly_sci_fi_spa_1129210755_texture" parent="player" instance=ExtResource("3_6glea")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="cam_target" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000816524, 3.42751, -6.36704)
+
+[node name="player_steering" type="Node" parent="player"]
+script = ExtResource("5_ewhjn")
+weight = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+shape = SubResource("SphereShape3D_picyu")
+
+[node name="Marker3D" type="Marker3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0601425, -0.831033)
+
+[node name="TrailEmitter" type="TrailEmitter" parent="player/Marker3D"]
+material = SubResource("StandardMaterial3D_opevk")
+curve = SubResource("Curve_n7l8b")
+gradient = SubResource("Gradient_qdsoh")
+num_points = 10
+noise_scale = 0.1
+size = 0.2
+update_interval = 0.05
+transform = Transform3D(1.31125e-07, -1.26663e-09, -1, 0.999895, -0.0144885, 1.3113e-07, -0.0144885, -0.999895, -6.33313e-10, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.474672, 0.880163, 0, -0.633669, 0.341738, 0.69403, 0.61086, -0.329437, 0.719946, 0, 11.0446, 0)
+light_energy = 2.248
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("5_lblp4")
+mesh = SubResource("BoxMesh_hmt7t")
+
+[node name="infinite_terrain" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+script = ExtResource("6_uyb8m")
+tile_prefab = ExtResource("7_c3k2y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g3xt2")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101955, 0, -11.3358)
+script = ExtResource("7_i67u7")
+target = NodePath("../player/cam_target")
+player = NodePath("../player")
