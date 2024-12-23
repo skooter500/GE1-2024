@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://boh8e6hop7l3w"]
 
-[ext_resource type="Script" path="res://FPController.gd" id="2_rl0e7"]
+[ext_resource type="Script" uid="uid://rk72gw4fqvv1" path="res://FPController.gd" id="2_rl0e7"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="2_s74er"]
 [ext_resource type="PackedScene" uid="uid://d2v5tptyj6j6i" path="res://terrain_tile.tscn" id="3_vb03k"]
-[ext_resource type="Script" path="res://infinite_terrain.gd" id="4_c8kae"]
+[ext_resource type="Script" uid="uid://58ds2qjm5m0k" path="res://infinite_terrain.gd" id="4_c8kae"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hmt7t"]
 

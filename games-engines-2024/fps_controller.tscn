@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dckxhsmjtsjce"]
 
-[ext_resource type="Script" path="res://wall.gd" id="2_6aieb"]
+[ext_resource type="Script" uid="uid://cm3l4bey3xj76" path="res://wall.gd" id="2_6aieb"]
 [ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="3_uuov8"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="4_o0x4m"]
-[ext_resource type="Script" path="res://player.gd" id="5_cqk1p"]
-[ext_resource type="Script" path="res://tower.gd" id="8_gqgtq"]
+[ext_resource type="Script" uid="uid://dnnsuukqie5xr" path="res://player.gd" id="5_cqk1p"]
+[ext_resource type="Script" uid="uid://cwlbcfrcpjb64" path="res://tower.gd" id="8_gqgtq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)

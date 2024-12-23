@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://bu1yheivmhfdc"]
 
 [ext_resource type="Script" uid="uid://cus7x4n3jhrq0" path="res://start_xr.gd" id="1_au36x"]
-[ext_resource type="Script" path="res://behaviors/Boid.gd" id="2_yv2i0"]
+[ext_resource type="Script" uid="uid://mxh17slwdh7m" path="res://behaviors/Boid.gd" id="2_yv2i0"]
 [ext_resource type="PackedScene" uid="uid://w4ere7rfy3l5" path="res://models/a_low_poly_sci_fi_spa_1129210755_texture.glb" id="3_6glea"]
-[ext_resource type="Script" path="res://behaviors/PlayerSteering.gd" id="5_ewhjn"]
+[ext_resource type="Script" uid="uid://bfl6r1gd6hmks" path="res://behaviors/PlayerSteering.gd" id="5_ewhjn"]
 [ext_resource type="Material" uid="uid://12bqh76svrfe" path="res://blue.tres" id="5_lblp4"]
 [ext_resource type="Texture2D" uid="uid://24bmqtucpobt" path="res://addons/trailmesh/example/albedo.png" id="6_qnefe"]
 [ext_resource type="Script" uid="uid://58ds2qjm5m0k" path="res://infinite_terrain.gd" id="6_uyb8m"]
 [ext_resource type="Texture2D" uid="uid://dtcj7h4kvugrc" path="res://addons/trailmesh/example/normal.png" id="7_3n501"]
 [ext_resource type="PackedScene" uid="uid://d2v5tptyj6j6i" path="res://terrain_tile.tscn" id="7_c3k2y"]
-[ext_resource type="Script" path="res://TPCamera.gd" id="7_i67u7"]
+[ext_resource type="Script" uid="uid://bwbxds2lwby8o" path="res://TPCamera.gd" id="7_i67u7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_picyu"]
 radius = 1.0

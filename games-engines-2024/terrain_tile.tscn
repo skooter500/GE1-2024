@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2v5tptyj6j6i"]
 
-[ext_resource type="Script" path="res://terrain_tile.gd" id="1_d16af"]
+[ext_resource type="Script" uid="uid://bqh5cvm0s2pcp" path="res://terrain_tile.gd" id="1_d16af"]
 [ext_resource type="Material" path="res://Holo/smiley2.tres" id="2_4x2h8"]
 
 [node name="terrain_tile" type="Node3D"]

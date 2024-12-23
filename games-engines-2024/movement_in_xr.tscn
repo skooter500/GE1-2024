@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="4_sxyf8"]
 [ext_resource type="PackedScene" uid="uid://c22b64h4ohfjt" path="res://pad.tscn" id="6_0k6bf"]
 [ext_resource type="AudioStream" uid="uid://bi1ofyhd7ibsq" path="res://samples/cowbell-808.wav" id="7_oecbk"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="8_0wnol"]
+[ext_resource type="Script" uid="uid://cjvs2k6u0sram" path="res://addons/godot-xr-tools/player/player_body.gd" id="8_0wnol"]
 [ext_resource type="AudioStream" uid="uid://c8olnij88hh13" path="res://samples/crash-808.wav" id="8_bvc17"]
 [ext_resource type="AudioStream" uid="uid://buja0daieg1ex" path="res://samples/hihat-808.wav" id="9_e2wsw"]
 [ext_resource type="AudioStream" uid="uid://bqs3l1q3cyu1q" path="res://samples/kick-808.wav" id="10_uxytj"]
@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bm6khvhmy5x3v" path="res://samples/perc-808.wav" id="12_b7p7j"]
 [ext_resource type="AudioStream" uid="uid://bcdifgq3rf4t0" path="res://samples/snare-808.wav" id="13_pino4"]
 [ext_resource type="AudioStream" uid="uid://b4m5q70d3w2a7" path="res://samples/tom-808.wav" id="14_311fk"]
-[ext_resource type="Script" path="res://sequencer.gd" id="15_mr8ci"]
+[ext_resource type="Script" uid="uid://c7d4ikpwls2n6" path="res://sequencer.gd" id="15_mr8ci"]
 [ext_resource type="PackedScene" uid="uid://dm1qa5btl0821" path="res://pad_a.tscn" id="16_m0tst"]
 [ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="17_hul1c"]
 

@@ -25,6 +25,9 @@ Welcome to the Metaverse
 - [Godot discord](https://discord.com/invite/godotengine)
 - [Submit your fork of the git repo](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUQUYzR082WFNZQUNTSlpZUkY3VzE5N0xBNi4u)
 
+## Week 12 - Exam Prep
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ERNfIRtXn8FNlxgsVlzu3voBs11tMBB9Plo9sVztaR6zAw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=3ttTI3)
+
 ## Week 11 - Flying over an Infinite Terrain
 - [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EaQ227zbtftBpAG7aomNxVQBxvuu2lq-Lpts9PEXep7uOg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=nAudd2) 
 

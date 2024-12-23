@@ -35,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qss24"]
 _data = {
-"Go!": SubResource("Animation_f5fpc")
+&"Go!": SubResource("Animation_f5fpc")
 }
 
 [sub_resource type="Curve3D" id="Curve3D_1cqmv"]
@@ -84,7 +84,7 @@ ambient_light_source = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qss24")
+&"": SubResource("AnimationLibrary_qss24")
 }
 autoplay = "Go!"
 

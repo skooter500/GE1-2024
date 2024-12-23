@@ -1,13 +1,13 @@
 [gd_scene load_steps=23 format=4 uid="uid://bcred76q6oolr"]
 
-[ext_resource type="Script" path="res://wall.gd" id="1_3slfy"]
+[ext_resource type="Script" uid="uid://cm3l4bey3xj76" path="res://wall.gd" id="1_3slfy"]
 [ext_resource type="PackedScene" uid="uid://buu3aq61omx1k" path="res://brick.tscn" id="2_loxll"]
 [ext_resource type="Material" uid="uid://dvo75cymypytd" path="res://green.tres" id="3_g5xgs"]
-[ext_resource type="Script" path="res://tower.gd" id="4_27ltx"]
-[ext_resource type="Script" path="res://taxi.gd" id="5_x51in"]
+[ext_resource type="Script" uid="uid://cwlbcfrcpjb64" path="res://tower.gd" id="4_27ltx"]
+[ext_resource type="Script" uid="uid://clfpjb6u4pcxw" path="res://taxi.gd" id="5_x51in"]
 [ext_resource type="Texture2D" uid="uid://de0232smetf0t" path="res://vehicles/Textures/colormap.png" id="6_tw3gb"]
 [ext_resource type="AudioStream" uid="uid://cvqw5loagu0fw" path="res://vehicles/engine.wav" id="7_b7mui"]
-[ext_resource type="Script" path="res://TPCamera.gd" id="8_2a3ym"]
+[ext_resource type="Script" uid="uid://bwbxds2lwby8o" path="res://TPCamera.gd" id="8_2a3ym"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_00q4b"]
 size = Vector2(100, 100)
