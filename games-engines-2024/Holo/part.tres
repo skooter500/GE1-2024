@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dmnydcgmnhc10"]
+
+[ext_resource type="Shader" path="res://Holo/part.gdshader" id="1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/uv1_scale = Vector3(3, 3, 3)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 2.0

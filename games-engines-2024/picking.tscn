@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0vwao66jy5sj"]
+
+[ext_resource type="Material" uid="uid://c7gmgs0bnpegq" path="res://red.tres" id="1_axrv0"]
+[ext_resource type="Script" path="res://picking.gd" id="1_we1x6"]
+[ext_resource type="Material" uid="uid://bwy778jyvpj15" path="res://seq_mat.tres" id="2_1g1b5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_73101"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_usmxw"]
+
+[sub_resource type="Environment" id="Environment_ao0pe"]
+
+[node name="picking" type="Node3D"]
+script = ExtResource("1_we1x6")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collide_with_areas = true
+
+[node name="red_box" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47552, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="red_box"]
+mesh = SubResource("BoxMesh_73101")
+surface_material_override/0 = ExtResource("1_axrv0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="red_box"]
+shape = SubResource("BoxShape3D_usmxw")
+
+[node name="blue_box" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5918, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="blue_box"]
+mesh = SubResource("BoxMesh_73101")
+surface_material_override/0 = ExtResource("2_1g1b5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blue_box"]
+shape = SubResource("BoxShape3D_usmxw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.3407)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ao0pe")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.69709, 0, 0.716984, -0.248571, 0.93798, 0.241674, -0.672516, -0.34669, 0.653856, 0, 0, 0)

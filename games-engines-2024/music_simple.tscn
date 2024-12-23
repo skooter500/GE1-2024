@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=3 uid="uid://vnir5kgm2ejf"]
+
+[ext_resource type="Script" uid="uid://blhnakn6fdnka" path="res://note1.gd" id="1_n5jtc"]
+[ext_resource type="Script" uid="uid://g7ign1nxf6kj" path="res://music_toys.gd" id="1_x0d74"]
+[ext_resource type="PackedScene" uid="uid://c60ccofffepc0" path="res://gen_ai/head_stand1.fbx" id="2_ivwwn"]
+[ext_resource type="AudioStream" uid="uid://byd6dob27syv4" path="res://gen_ai/Colors in Harmony.mp3" id="3_5drkx"]
+[ext_resource type="Material" path="res://Holo/bee.tres" id="3_osj8m"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j1wjo"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hh6a8"]
+radius = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_ma8yd"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gwc5v"]
+radius = 0.05
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7fnv5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eh7r2"]
+size = Vector2(10, 10)
+
+[sub_resource type="Environment" id="Environment_rp5yi"]
+ambient_light_color = Color(0.973535, 0.973535, 0.973535, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_x0d74")
+
+[node name="head_stand1" parent="." instance=ExtResource("2_ivwwn")]
+
+[node name="Skeleton3D" parent="head_stand1" index="1"]
+bones/1/position = Vector3(0.529907, -0.160226, 0.989889)
+bones/1/rotation = Quaternion(0.666126, 0.0634895, 0.0113238, 0.743046)
+bones/2/rotation = Quaternion(0.0535933, -0.0966175, -0.00836246, 0.993842)
+bones/4/rotation = Quaternion(-0.54055, 0.455857, 0.54055, 0.455857)
+bones/5/rotation = Quaternion(-0.307737, -0.826237, 0.36851, 0.29467)
+bones/6/rotation = Quaternion(0.434704, 1.92686e-07, -1.12316e-06, 0.900573)
+bones/7/rotation = Quaternion(0.0163009, 0.0407708, 0.0591831, 0.997281)
+bones/9/rotation = Quaternion(0.295574, 0.0303753, -0.0979913, 0.949795)
+bones/10/rotation = Quaternion(0.415374, 3.70344e-07, -1.82125e-07, 0.909651)
+bones/11/rotation = Quaternion(0.370753, 3.68876e-07, 5.57581e-08, 0.928732)
+bones/12/rotation = Quaternion(-0.211895, 0.910064, 0.350818, 0.0617329)
+bones/13/rotation = Quaternion(0.437667, -0.00195863, 0.00289482, 0.89913)
+bones/14/rotation = Quaternion(0.351244, 0.00114149, -0.00102902, 0.936283)
+bones/15/rotation = Quaternion(-0.00292182, -0.710457, -0.00289417, 0.703729)
+bones/16/rotation = Quaternion(0.354271, -9.60906e-05, -6.65343e-06, 0.935143)
+bones/17/rotation = Quaternion(0.591296, 6.8426e-07, -1.68783e-07, 0.806455)
+bones/18/rotation = Quaternion(0.461543, 3.76678e-07, 5.21085e-07, 0.887118)
+bones/19/rotation = Quaternion(-0.00324605, -0.71046, -0.00321528, 0.703723)
+bones/20/rotation = Quaternion(0.443118, -0.0267501, 0.0538051, 0.894447)
+bones/21/rotation = Quaternion(0.663735, 7.69602e-07, 3.24237e-08, 0.747968)
+bones/22/rotation = Quaternion(0.476037, 1.40264e-07, 6.16397e-07, 0.879425)
+bones/23/rotation = Quaternion(-0.00345824, -0.710458, -0.00342547, 0.703723)
+bones/24/rotation = Quaternion(0.420889, -0.0656063, 0.139137, 0.893974)
+bones/25/rotation = Quaternion(0.623108, 9.22772e-07, -8.97572e-08, 0.782136)
+bones/26/rotation = Quaternion(0.508286, 3.64549e-07, 7.17512e-07, 0.861188)
+bones/27/rotation = Quaternion(-0.535325, -0.461982, -0.535325, 0.461982)
+bones/28/rotation = Quaternion(-0.435474, 0.737626, -0.375723, 0.353699)
+bones/29/rotation = Quaternion(0.621141, -2.63568e-07, 1.9327e-06, 0.783699)
+bones/30/rotation = Quaternion(-0.13868, -0.0613367, -0.184763, 0.971014)
+bones/31/rotation = Quaternion(0.252629, 0.832835, 0.490709, 0.0420562)
+bones/32/rotation = Quaternion(0.280873, 0.00241606, -0.0025253, 0.959738)
+bones/33/rotation = Quaternion(0.609474, -0.000791071, 0.00131794, 0.792804)
+bones/34/rotation = Quaternion(-0.00292184, 0.710462, 0.00289415, 0.703724)
+bones/35/rotation = Quaternion(0.526243, 9.51373e-05, -1.18568e-05, 0.850334)
+bones/36/rotation = Quaternion(0.441587, -3.18116e-07, -1.13116e-07, 0.897218)
+bones/37/rotation = Quaternion(0.242947, -8.79493e-08, -1.22426e-07, 0.97004)
+bones/38/rotation = Quaternion(-0.00324607, 0.710465, 0.00321526, 0.703718)
+bones/39/rotation = Quaternion(0.461908, -0.0141811, 0.0273923, 0.886391)
+bones/40/rotation = Quaternion(0.460849, -2.73197e-07, 3.15853e-09, 0.887478)
+bones/41/rotation = Quaternion(0.211153, -1.42485e-07, -1.13568e-07, 0.977453)
+bones/42/rotation = Quaternion(-0.00345836, 0.710463, 0.00342554, 0.703718)
+bones/43/rotation = Quaternion(0.468701, 0.00261297, -0.00474254, 0.88334)
+bones/44/rotation = Quaternion(0.398808, -3.45931e-07, 3.08781e-08, 0.917035)
+bones/45/rotation = Quaternion(0.252576, -1.80164e-07, -1.405e-07, 0.967577)
+bones/47/rotation = Quaternion(0.577088, -0.00848692, 0.0121416, 0.816547)
+bones/48/rotation = Quaternion(0.470007, -2.75102e-07, -9.41227e-08, 0.882663)
+bones/49/rotation = Quaternion(-0.0174525, -1.14961e-09, -1.9762e-08, 0.999848)
+bones/51/rotation = Quaternion(0.0999598, -0.153031, 0.00282165, 0.983149)
+bones/53/rotation = Quaternion(0.995143, 0.00420759, 0.0111846, -0.0977099)
+bones/54/rotation = Quaternion(0.0405402, 7.91363e-08, -9.86129e-09, 0.999178)
+bones/55/rotation = Quaternion(-0.569471, -0.160297, -0.100386, 0.799956)
+bones/56/rotation = Quaternion(-0.272893, 3.4197e-06, -9.36633e-07, 0.962045)
+bones/58/rotation = Quaternion(0.998291, -0.00440304, 0.0447155, 0.0373557)
+bones/59/rotation = Quaternion(0.125205, 1.31393e-08, 3.07906e-08, 0.992131)
+bones/60/rotation = Quaternion(-0.5828, 0.198527, 0.0452237, 0.786693)
+bones/61/rotation = Quaternion(-0.300808, 3.4756e-06, -1.14519e-06, 0.953685)
+
+[node name="preretarget_visual_0_L_sblade" parent="head_stand1/Skeleton3D" index="22"]
+surface_material_override/0 = ExtResource("3_osj8m")
+
+[node name="note" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3429, 0.36499)
+collision_mask = 2
+script = ExtResource("1_n5jtc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="note"]
+mesh = SubResource("SphereMesh_j1wjo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="note"]
+shape = SubResource("SphereShape3D_hh6a8")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="note"]
+stream = ExtResource("3_5drkx")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="XROrigin3D/XRCamera3D"]
+
+[node name="left" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="left_area" type="Area3D" parent="XROrigin3D/left"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/left/left_area"]
+mesh = SubResource("SphereMesh_ma8yd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/left/left_area"]
+shape = SubResource("SphereShape3D_gwc5v")
+
+[node name="right" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="right_area" type="Area3D" parent="XROrigin3D/right"]
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/right/right_area"]
+mesh = SubResource("SphereMesh_ma8yd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/right/right_area"]
+shape = SubResource("SphereShape3D_gwc5v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_7fnv5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_eh7r2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rp5yi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[connection signal="area_entered" from="note" to="note" method="_on_area_entered"]
+
+[editable path="head_stand1"]

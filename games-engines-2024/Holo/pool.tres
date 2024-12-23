@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[ext_resource path="pool.gdshader" type="Shader" id=1]
+[ext_resource path="pool_texture_1.png" type="Texture" id=2]
+[ext_resource path="pool_texture_2.png" type="Texture" id=3]
+[ext_resource path="pool_texture_3.png" type="Texture" id=4]
+[ext_resource path="pool_texture_4.png" type="Texture" id=5]
+[ext_resource path="pool_texture_5.png" type="Texture" id=6]
+[resource]
+shader = ExtResource( 1 )
+shader_param/texture_1 = ExtResource( 2 )
+shader_param/texture_2 = ExtResource( 3 )
+shader_param/texture_3 = ExtResource( 4 )
+shader_param/texture_4 = ExtResource( 5 )
+shader_param/texture_5 = ExtResource( 6 )
+
+
+
