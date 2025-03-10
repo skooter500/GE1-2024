@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch55ht1roq8b0"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_s2k2n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_noana"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbrpj"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="bullet" type="CharacterBody3D"]
+script = ExtResource("1_s2k2n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_noana")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vbrpj")

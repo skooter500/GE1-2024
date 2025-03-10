@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://c2lq2ugo75jua"]
+
+[ext_resource type="Script" path="res://TPCamera.gd" id="1_b3qm6"]
+[ext_resource type="Material" uid="uid://srar707vgbcw" path="res://dark-blue.tres" id="1_w2nfs"]
+[ext_resource type="Material" uid="uid://42kfmr0nw6w0" path="res://pink.tres" id="2_mdfkg"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="3_hbxjf"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="4_yil0p"]
+[ext_resource type="PackedScene" uid="uid://ddn8yjq4dyhie" path="res://brick.tscn" id="5_k275a"]
+[ext_resource type="PackedScene" uid="uid://ch55ht1roq8b0" path="res://bullet.tscn" id="6_w8jb8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y6hks"]
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5mgfx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1xmdi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ukuhn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jusw1"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sm3rd"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2eeti"]
+size = Vector3(0.1, 0.1, 1)
+
+[node name="root" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383295, 3.42699, 4.95684)
+fov = 90.7783
+script = ExtResource("1_b3qm6")
+target = NodePath("../tank/cam_target")
+player = NodePath("../tank")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.221166, -0.668163, -0.710383, 0.723517, -0.376006, 0.578915, -0.653918, -0.64201, 0.400268, 0.0166082, 0.408409, 0.0562881)
+
+[node name="wall" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.11494)
+script = ExtResource("4_yil0p")
+brick_scene = ExtResource("5_k275a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="ground" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000130773, -4.00543e-05, -1.74976)
+material_override = ExtResource("1_w2nfs")
+mesh = SubResource("PlaneMesh_y6hks")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_5mgfx")
+
+[node name="tank" type="CharacterBody3D" parent="." node_paths=PackedStringArray("bullet_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0222607, 0.49263, 0.00402546)
+script = ExtResource("3_hbxjf")
+speed = 10.0
+bullet_scene = ExtResource("6_w8jb8")
+bullet_spawn = NodePath("bullet_spawn")
+
+[node name="player" type="MeshInstance3D" parent="tank"]
+transform = Transform3D(0.999973, -2.53098e-05, -0.00732482, 6.19204e-05, 0.999988, 0.00499539, 0.0073246, -0.00499571, 0.999961, -0.00423384, 0, 0.0234127)
+material_override = ExtResource("2_mdfkg")
+mesh = SubResource("BoxMesh_1xmdi")
+skeleton = NodePath("../../StaticBody3D/ground")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank"]
+shape = SubResource("BoxShape3D_ukuhn")
+
+[node name="cam_target" type="Marker3D" parent="tank"]
+transform = Transform3D(-0.306331, 0.946929, -0.0974027, 0.939978, 0.317059, 0.126155, 0.150342, -0.0529111, -0.987217, -0.0754674, 1.35158, -2.4968)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.558997, 0.607017)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tank/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0224859, -0.0162112)
+material_override = ExtResource("2_mdfkg")
+mesh = SubResource("BoxMesh_jusw1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tank/StaticBody3D"]
+shape = SubResource("BoxShape3D_sm3rd")
+
+[node name="bullet_spawn" type="Marker3D" parent="tank"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036697, 0.461567, 1.34981)
+
+[node name="turret" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -0.5)
+visible = false
+material_override = ExtResource("2_mdfkg")
+mesh = SubResource("BoxMesh_2eeti")
+skeleton = NodePath("../tank/player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]

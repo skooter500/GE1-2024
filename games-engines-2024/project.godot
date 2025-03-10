@@ -29,6 +29,10 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addon
 
 import/blender/enabled=false
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_forward={

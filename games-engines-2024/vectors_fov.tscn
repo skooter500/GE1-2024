@@ -33,7 +33,7 @@ albedo_texture = ExtResource("9_eh4lc")
 [node name="root" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target", "player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34612, -17.565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97526, 2.72662, -16.6475)
 script = ExtResource("1_1bql5")
 target = NodePath("../tank/cam_target")
 player = NodePath("../tank")

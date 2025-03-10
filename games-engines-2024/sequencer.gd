@@ -104,7 +104,7 @@ func load_samples():
 				# samples[name] = asp
 			
 				var stream = load(path_str + "/" + file_name)
-				stream.resource_name = file_name
+				# stream.resource_name = file_name
 				samples.push_back(stream)
 				file_names.push_back(file_name)
 				# $AudioStreamPlayer.play()

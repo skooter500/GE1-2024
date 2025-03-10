@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfi87cggu0nck"]
+
+[ext_resource type="Material" uid="uid://ucar538enkbo" path="res://pink.tres" id="1_idgx2"]
+[ext_resource type="Material" uid="uid://dwtbmhks318jg" path="res://purple.tres" id="2_oulty"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nki0y"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mtlwi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d2g3s"]
+size = Vector3(0.1, 0.1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ground-pink" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_idgx2")
+mesh = SubResource("PlaneMesh_nki0y")
+
+[node name="player" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = ExtResource("2_oulty")
+mesh = SubResource("BoxMesh_mtlwi")
+
+[node name="turret" type="MeshInstance3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.5)
+material_override = ExtResource("2_oulty")
+mesh = SubResource("BoxMesh_d2g3s")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 3.5)
+fov = 76.4139
