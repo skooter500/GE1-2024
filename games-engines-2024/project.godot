@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Games Engines 2024"
-run/main_scene="res://music_toys.tscn"
+run/main_scene="uid://boh8e6hop7l3w"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -56,6 +56,16 @@ func generate_mesh():
 	var collision_shape_mesh = ConcavePolygonShape3D.new()
 	collision_shape_mesh.set_faces(current_mesh.get_faces())
 	collision_shape.shape = collision_shape_mesh
+	
+func get_normal(x: float, y: float) -> Vector3:
+	var epsilon := 1
+	var normal := Vector3(
+		(sample_cell(x + epsilon, y) - sample_cell(x - epsilon, y)) / (2.0 * epsilon),
+		1.0,
+		(sample_cell(x, y + epsilon) - sample_cell(x, y - epsilon)) / (2.0 * epsilon),
+	)
+	return normal.normalized()
+
 
 func create_mesh():
 	var st = SurfaceTool.new()
@@ -77,36 +87,35 @@ func create_mesh():
 			var uv_tr = Vector2(float(col + 1) / quads_per_tile, float(row + 1) / quads_per_tile)
 			var uv_br = Vector2(float(col + 1) / quads_per_tile, float(row) / quads_per_tile)
 			
-			# First triangle (bl, br, tl) - counter-clockwise order
-			var normal1 = (br - bl).cross(tl - bl).normalized()
-			st.set_normal(normal1)
-			st.set_uv(uv_bl)
-			st.add_vertex(bl)
+			st.set_normal(get_normal(row, col + 1))		
+			st.set_uv(uv_br)	
+			st.add_vertex(br)            
 			
-			st.set_normal(normal1)
-			st.set_uv(uv_br)
-			st.add_vertex(br)
-			
-			st.set_normal(normal1)
-			st.set_uv(uv_tl)
+			st.set_normal(get_normal(row + 1, col))	
+			st.set_uv(uv_tl)		
 			st.add_vertex(tl)
 			
-			# Second triangle (br, tr, tl) - counter-clockwise order
-			var normal2 = (tr - br).cross(tl - br).normalized()
-			st.set_normal(normal2)
-			st.set_uv(uv_br)
-			st.add_vertex(br)
-			
-			st.set_normal(normal2)
+			st.set_normal(get_normal(row, col))
+			st.set_uv(uv_bl)
+			st.add_vertex(bl)
+						
+						
+			# Second triangle
+			st.set_normal(get_normal(row + 1, col + 1))
 			st.set_uv(uv_tr)
 			st.add_vertex(tr)
 			
-			st.set_normal(normal2)
+			st.set_normal(get_normal(row + 1, col))
 			st.set_uv(uv_tl)
 			st.add_vertex(tl)
+			
+			st.set_normal(get_normal(row, col + 1))
+			st.set_uv(uv_br)
+			st.add_vertex(br)
+			
 	
 	st.generate_tangents()
-	st.generate_normals()
+	# st.generate_normals()
 	current_mesh = st.commit()
 
 func noise_2d(x: float, y: float) -> float:

@@ -8,6 +8,9 @@
 [sub_resource type="BoxMesh" id="BoxMesh_hmt7t"]
 
 [sub_resource type="Environment" id="Environment_g3xt2"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.63219, 0.180872, 0.957655, 1)
 
 [node name="terrain_gen" type="Node3D"]
 
